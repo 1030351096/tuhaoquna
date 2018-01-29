@@ -1,0 +1,84 @@
+﻿@using DripOldDriver
+@model IEnumerable<TuHaoQuNa.Web.Models.Film>
+<div class="masonry">
+    @if (Model != null)
+    {
+        foreach (var item in Model)
+        {
+            <div class="masonry__item col-md-3 col-sm-6 col-xs-6" data-masonry-filter="@(item.Family==2?"电视剧":"电影")">
+                <a href="/subject/@item.DouBanID" target="_blank" class="block text-block">
+                    <figure class="effect-sadie">
+                        <img class="poster" family="@(item.Family==2?"tvshow":"movie")" alt="@item.Name" src="@item.Poster" />
+                        <figcaption>
+                            <h2>
+                                @item.Name
+                                @if (item.Year.HasValue)
+                                {
+                                    <br>
+                                    <span>@item.Year</span>
+                                }
+                            </h2>
+                            <p>
+                                <span property="v:summary" style="word-wrap:break-word;">
+                                    @Html.Raw(item.Describe)
+                                </span>
+                            </p>
+                            <h5>
+                                @item.Name
+                                @if (item.Year.HasValue)
+                                {
+                                    <span class="type--fine-print">(@item.Year)</span>
+                                }
+                                @if (item.Score.ToDecimal_() > 0)
+                                {
+                                    <span class="tag-sm tag-picture2">@String.Format("{0:N1}", item.Score)</span>
+                                }
+                            </h5>
+                            @if (item.Score.ToDecimal_() > 0)
+                            {
+                                <em>@String.Format("{0:N1}", item.Score)</em>
+                            }
+                        </figcaption>
+                    </figure>
+                </a>
+            </div>
+        }
+    }
+</div>
+<script id="filmListTpl" type="text/html">
+    {{# for (var i = 0; i < d.length; i++) { }}
+    <div class="masonry__item col-md-3 col-sm-6 col-xs-6" data-masonry-filter="{{d[i].Family==2?"电视剧":"电影"}}">
+        <a href="/subject/{{d[i].DouBanID}}" target="_blank" class="block text-block">
+            <figure class="effect-sadie">
+                <img class="poster" family="{{d[i].Family==2?"tvshow":"movie"}}" alt="{{d[i].Name}}" src="{{d[i].Poster}}" />
+                <figcaption>
+                    <h2>
+                        {{d[i].Name}}
+                        {{# if(d[i].Year){ }}
+                        <br>
+                        <span>{{d[i].Year}}</span>
+                        {{# } }}
+                    </h2>
+                    <p>
+                        <span property="v:summary" style="word-wrap:break-word;">
+                            {{d[i].Describe}}
+                        </span>
+                    </p>
+                    <h5>
+                        {{d[i].Name}}
+                        {{# if(d[i].Year){ }}
+                        <span class="type--fine-print">({{d[i].Year}})</span>
+                        {{# } }}
+                        {{# if(d[i].Score>0){ }}
+                        <span class="tag-sm tag-picture2">{{d[i].Score.toFixed(1)}}</span>
+                        {{# } }}
+                    </h5>
+                    {{# if(d[i].Score>0){ }}
+                    <em>{{d[i].Score.toFixed(1)}}</em>
+                    {{# } }}
+                </figcaption>
+            </figure>
+        </a>
+    </div>
+    {{# } }}
+</script>

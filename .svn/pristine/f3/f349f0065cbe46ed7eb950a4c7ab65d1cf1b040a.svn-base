@@ -1,0 +1,572 @@
+﻿@model TuHaoQuNa.Web.Models.FilmInfo
+@if (Model != null)
+{
+    <section class="imagebg bg--dark" style="background:#1a151c;padding-bottom: 3em;">
+        <div class="container" id="movie-content" itemscope="">
+            <div class="container" style="margin-top: 3em;">
+                <div class="col-md-4">
+                    <div class="masonry masonry-demos">
+                        <div class="masonry__container masonry--active">
+                            <div class="masonry__item">
+                                <div>
+                                    <img class="poster" family="@(Model.Family==1?"movie":"tvshow")" style="border-radius:10px " alt="@Model.Name" src="@Model.Poster" />
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4" style="margin-bottom:2em">
+                    <span style="font-size: 2em;font-weight: 700;color:#be997f;display: block;margin-bottom: .5em">@Model.Name</span>
+                    @if (Model.Score.HasValue)
+                    {
+                        <span class="tiny-title">评分: <span style="font-size: 2em;font-weight: 700;color:#fc9b35;">@(String.Format("{0:N1}", Model.Score))</span></span>
+                    }
+                    @if (!string.IsNullOrWhiteSpace(Model.OriginalTitle))
+                    {
+                        <span class="tiny-title">标题: @Model.OriginalTitle</span>
+                    }
+                    @if (!string.IsNullOrWhiteSpace(Model.AkaNames))
+                    {
+                        <span class="tiny-title">又名: @Html.Raw(Model.AkaNames)</span>
+                    }
+                    @if (!string.IsNullOrWhiteSpace(Model.PubDates))
+                    {
+                        <span class="tiny-title">上映时间: @Model.PubDates</span>
+                    }
+                    @if (!string.IsNullOrWhiteSpace(Model.CategoryNames))
+                    {
+                        <span class="tiny-title">类型: @Model.CategoryNames</span>
+                    }
+                    @if (!string.IsNullOrWhiteSpace(Model.LongTimes))
+                    {
+                        <span class="tiny-title">片长: @Model.LongTimes</span>
+                    }
+                    @if (!string.IsNullOrWhiteSpace(Model.CountrieNames))
+                    {
+                        <span class="tiny-title">制片国家: @Model.CountrieNames</span>
+                    }
+                    @if (!string.IsNullOrWhiteSpace(Model.DouBanID))
+                    {
+                        <span class="tiny-title">豆瓣ID: <a target="_blank" class="tag-transparent" href="@Model.Alt">@Model.DouBanID</a></span>
+                    }
+                </div>
+                @if (!string.IsNullOrWhiteSpace(Model.Describe))
+                {
+                    <div class="col-md-4" style="background:#1f1921; border-radius:6px; padding:20px;transition:all 0.3s;">
+                        <span style="font-size: 2em;font-weight: 700;color:#907e91;margin-bottom: .5em;display: block">剧情:</span>
+                        <article class="information-text">
+                            <span property="v:summary" class="" style="word-wrap:break-word;">
+                                @Html.Raw(Model.Describe)
+                            </span>
+                        </article>
+                    </div>
+                }
+            </div>
+        </div>
+    </section>
+    <section id="preview" class="text-center" style="position: relative;z-index: 9;background:#1a151c;padding: 0 0 3em 0;"></section>
+    <script type="text/html" id="previewTpl">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-9">
+                    {{# for (var i = 0; i < (d.length>3?3:d.length); i++) { }}
+                    <div class="col-md-4 picture" style="padding: 0 10px;">
+                        <a target="_blank" href="{{d[i].Video}}"><img alt="{{d[i].Title}}" src="{{d[i].Photo}}" /></a>
+                    </div>
+                    {{# } }}
+                </div>
+            </div>
+        </div>
+    </script>
+    <section class="text-center bg--dark" id="lib_menu" style="position: relative;z-index: 9;background:#1a151c;padding-top: 1em; padding-bottom:1em;"></section>
+    <script type="text/html" id="lib_menuTpl">
+        {{# if((d.Director+d.Screenwriter+d.Performer)>0 || d.Download>0 || d.Subtitle>0 || d.Player>0){ }}
+        <div class="container">
+            <div class="row">
+                <div class="col-md-9 boxed bg--secondary" style="background: rgba(0, 0, 0, 0);">
+                    <div class="tabs-container" data-content-align="left">
+                        <ul class="tabs">
+                            {{# if(d.Player>0){ }}
+                            <li class="lib_menu_li" data-show="player">
+                                <div class="tab__title text-center">
+                                    <i class="icon icon--sm block icon-Preview"></i>
+                                    <span class="h5">在线播放</span>
+                                </div>
+                            </li>
+                            {{# } }}
+                            {{# if(d.Download>0){ }}
+                            <li class="lib_menu_li" data-show="download">
+                                <div class="tab__title text-center">
+                                    <i class="icon icon--sm block icon-Cloud"></i>
+                                    <span class="h5">影片资源</span>
+                                </div>
+                            </li>
+                            {{# } }}
+                            {{# if(d.Subtitle>0){ }}
+                            <li class="lib_menu_li" data-show="subtitle">
+                                <div class="tab__title text-center">
+                                    <i class="icon icon--sm block icon-Text-Effect"></i>
+                                    <span class="h5">字幕资源</span>
+                                </div>
+                            </li>
+                            {{# } }}
+                            {{# if((d.Director+d.Screenwriter+d.Performer)>0){ }}
+                            <li class="lib_menu_li" data-show="celebrity">
+                                <div class="tab__title text-center">
+                                    <i class="icon icon--sm block icon-Love-User"></i>
+                                    <span class="h5">影人信息</span>
+                                </div>
+                            </li>
+                            {{# } }}
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+        {{# } }}
+    </script>
+    <section class="text-center bg--dark lib_content" id="celebrity" style="position: relative;z-index: 9;background:#1a151c;padding-top: 1em; display:none;"></section>
+    <script id="celebrityTpl" type="text/html">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-9 boxed bg--secondary" style="background: rgba(0, 0, 0, 0.08);">
+                    <div class="tabs-container" style="text-align:left;" data-content-align="left">
+                        <div class="tab__content">
+                            <div class="container">
+                                {{# if(d.Director && d.Director.length>0){ }}
+                                <div class="directors" style="margin-top: 12px">
+                                    <span class="type--bold">导演：</span>
+                                    <div class="tag-box">
+                                        {{# for (var i = 0; i < d.Director.length; i++) { }}
+                                        <a class="name-cast tag-transparent" href="/celebrity/{{d.Director[i].CelebrityDouBanID}}" style="margin-right:10px; margin-top:10px;" target="_blank">
+                                            <span itemprop="director" class="releated-people-tags" itemscope="">
+                                                <span itemprop="name">{{d.Director[i].Name}}</span>
+                                            </span>
+                                        </a>
+                                        {{# } }}
+                                    </div>
+                                </div>
+                                {{# } }}
+                                {{# if(d.Screenwriter && d.Screenwriter.length>0){ }}
+                                <div class="directors" style="margin-top: 12px">
+                                    <span class="type--bold">编剧：</span>
+                                    <div class="tag-box">
+                                        {{# for (var i = 0; i < d.Screenwriter.length; i++) { }}
+                                        <a class="name-cast tag-transparent" href="/celebrity/{{d.Screenwriter[i].CelebrityDouBanID}}" style="margin-right:10px; margin-top:10px;" target="_blank">
+                                            <span itemprop="director" class="releated-people-tags" itemscope="">
+                                                <span itemprop="name">{{d.Screenwriter[i].Name}}</span>
+                                            </span>
+                                        </a>
+                                        {{# } }}
+                                    </div>
+                                </div>
+                                {{# } }}
+                                {{# if(d.Performer && d.Performer.length>0){ }}
+                                <div class="directors" style="margin-top: 12px">
+                                    <span class="type--bold">演员：</span>
+                                    <div class="tag-box">
+                                        {{# for (var i = 0; i < d.Performer.length; i++) { }}
+                                        <a class="name-cast tag-transparent" href="/celebrity/{{d.Performer[i].CelebrityDouBanID}}" style="margin-right:10px; margin-top:10px;" target="_blank">
+                                            <span itemprop="director" class="releated-people-tags" itemscope="">
+                                                <span itemprop="name">{{d.Performer[i].Name}}</span>
+                                            </span>
+                                        </a>
+                                        {{# } }}
+                                    </div>
+                                </div>
+                                {{# } }}
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </script>
+    <section class="text-center bg--dark lib_content" id="download" style="position: relative;z-index: 9;background:#1a151c;padding-top: 1em; display:none;"></section>
+    <script type="text/html" id="downloadTpl">
+        <div class="container">
+            <div class="row">
+                <div class="boxed bg--secondary" style="background: rgba(0, 0, 0, 0.08);">
+                    <div class="tabs-container" data-content-align="left">
+                        <ul class="tabs">
+                            {{# for (var i = 0; i < d.length; i++) { }}
+                            <li class="download_li" data-show="{{d[i].Clear}}">
+                                <div class="tab__title text-center">
+                                    <span class="h5">{{d[i].Clear}}</span>
+                                </div>
+                            </li>
+                            {{# } }}
+                        </ul>
+                        {{# for (var i = 0; i < d.length; i++) { }}
+                        <div class="picture-container download_content {{d[i].Clear}}" style="text-align:left;display:none;">
+                            {{# for (var j = 0; j < d[i].List.length; j++) { }}
+                            <div class="container">
+                                <div class="col-md-12">
+                                    <a class="torrent-title" href="{{d[i].List[j].BitTorrent}}" style="color: #3f96ec;">
+                                        {{d[i].List[j].Title}}
+                                    </a>
+                                </div>
+                                <div class="col-md-3"><div class="tag-sm tag-size text-center">{{(d[i].List[j].Size/(1024.0*1024.0)).toFixed(2)}}GB</div></div>
+                                <div class="col-md-3"><div class="tag-sm tag-picture3 text-center">{{d[i].List[j].Meta}}</div></div>
+                                <div class="col-md-3"><a href="{{d[i].List[j].Magnet}}"><div class="tag-sm tag-magnet text-center">磁力链接</div></a></div>
+                                <div class="col-md-3"><a href="{{d[i].List[j].BitTorrent}}"><div class="tag-sm tag-download text-center">下载种子</div></a></div>
+                                <div class="col-md-12 border-bottom-1px"></div>
+                            </div>
+                            {{# } }}
+                        </div>
+                        {{# } }}
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </script>
+    <section class="text-center bg--dark lib_content" id="subtitle" style="position: relative;z-index: 9;background:#1a151c;padding-top: 1em; display:none;"></section>
+    <script type="text/html" id="subtitleTpl">
+        <div class="container">
+            <div class="row">
+                <div class="boxed bg--secondary" style="background: rgba(0, 0, 0, 0.08);">
+                    <div class="tab__content" style="text-align:left;">
+                        <table cellpadding="0" cellspacing="0" class="data" style="width: 100%;border: 1px solid #666;">
+                            <tbody>
+                                <tr class="firstr">
+                                    <th>资源名</th>
+                                    <th>制作组</th>
+                                    <th>语言</th>
+                                    <th>格式</th>
+                                </tr>
+                                {{# for (var i = 0; i < d.length; i++) { }}
+                                <tr class="odd">
+                                    <td class="nobr"><a href="{{d[i].Download}}" class="torrent-title" style="color: #3f96ec;" target="_blank">{{d[i].Title}}</a></td>
+                                    <td class="nobr center"><span class="tag-sm tag-picture">{{d[i].Source}}</span></td>
+                                    <td class="nobr center"><span class="tag-sm tag-picture3">{{d[i].Meta}}</span></td>
+                                    <td class="nobr center"><span class="tag-sm tag-picture2">{{d[i].Format}}</span></td>
+                                </tr>
+                                {{# } }}
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </script>
+    <section class="text-center bg--dark lib_content" id="player" style="position: relative;z-index: 9;background:#1a151c;padding-top: 1em; display:none;"></section>
+    <script type="text/html" id="playerTpl">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-9 boxed bg--secondary" style="background: rgba(0, 0, 0, 0.08);">
+                    <div class="tabs-container" data-content-align="left">
+                        <ul class="tabs">
+                            {{# for (var i = 0; i < d.length; i++) { }}
+                            <li class="player_li" data-show="{{d[i].Platform}}">
+                                <div class="tab__title text-center">
+                                    <span class="h5">{{toPlatform(d[i].Platform)}}</span>
+                                </div>
+                            </li>
+                            {{# } }}
+                        </ul>
+                        {{# for (var i = 0; i < d.length; i++) { }}
+                        <div class="picture-container player_content {{d[i].Platform}}" style="text-align:left;display:none;">
+                            {{# for (var j = 0; j < d[i].List.length; j++) { }}
+                            <div class="container">
+                                <div class="col-md-12" style="margin-bottom:20px;">
+                                    {{d[i].List[j].Name}}
+                                </div>
+                                {{# for (var h = 0; h < d[i].List[j].Episodes.length; h++) { }}
+                                {{# if (d[i].List[j].Episodes[h].Episodes) { }}
+                                <div class="col-md-1"><a target="_blank" href="/player/{{d[i].List[j].Episodes[h].Guid}}"><div class="text-center" style="background:#616060;border-radius: 1em; margin-top:5px;">{{d[i].List[j].Episodes[h].Episodes}}</div></a></div>
+                                {{# } else { }}
+                                <div class="col-md-3"><a target="_blank" href="/player/{{d[i].List[j].Episodes[h].Guid}}"><div class="text-center" style="background:#5c54f5;border-radius: 1em; margin-top:5px;">在线播放</div></a></div>
+                                {{# } }}
+                                {{# } }}
+                                <div class="col-md-12 border-bottom-1px"></div>
+                            </div>
+                            {{# } }}
+                        </div>
+                        {{# } }}
+                    </div>
+                </div>
+            </div>
+        </div>
+    </script>
+
+    @section Scripts{
+        @Scripts.Render("~/js/jquery")
+        @Scripts.Render("~/js/masonry")
+        @Scripts.Render("~/js/common")
+        @Scripts.Render("~/layui/layui")
+        <script type="text/javascript">
+            var movie_doubanID = "@Model.DouBanID";
+            var loadIndex;
+
+            layui.use(['layer', 'laytpl'], function () {
+                getPreview();
+                getLib();
+
+                $(document).on("click", ".lib_menu_li", function () {
+                    $(".lib_menu_li").removeClass("active");
+                    $(this).addClass("active");
+                    $(".lib_content").hide();
+                    var showid = $(this).attr("data-show");
+                    switch (showid) {
+                        case "celebrity":
+                            getCelebrity();
+                            $("#celebrity").show();
+                            break;
+                        case "download":
+                            getDownload();
+                            $("#download").show();
+                            break;
+                        case "subtitle":
+                            getSubtitle();
+                            $("#subtitle").show();
+                            break;
+                        case "player":
+                            getPlayer();
+                            $("#player").show();
+                            break;
+                    }
+                });
+
+                $(document).on("click", ".download_li", function () {
+                    $(".download_li").removeClass("active");
+                    $(this).addClass("active");
+                    $(".download_content").hide();
+                    var showid = $(this).attr("data-show");
+                    $(".download_content." + showid).show();
+                });
+
+                $(document).on("click", ".player_li", function () {
+                    $(".player_li").removeClass("active");
+                    $(this).addClass("active");
+                    $(".player_content").hide();
+                    var showid = $(this).attr("data-show");
+                    $(".player_content." + showid).show();
+                });
+            });
+
+            function toPlatform(old_name) {
+                var p_name;
+                switch (old_name) {
+                    case "youku":
+                        p_name = "优酷";
+                        break;
+                    case "iqiyi":
+                        p_name = "爱奇艺";
+                        break;
+                    case "qq":
+                        p_name = "腾讯视频";
+                        break;
+                    case "sohu":
+                        p_name = "搜狐";
+                        break;
+                    case "le":
+                        p_name = "乐视";
+                        break;
+                    case "pptv":
+                        p_name = "PPTV";
+                        break;
+                    default:
+                        p_name = "其它";
+                        break;
+                }
+                return p_name;
+            }
+            function getPreview() {
+                var sendParms = {
+                    doubanID: movie_doubanID,
+                    previewtype: 3
+                };
+                Ajax({
+                    url: "GetPreview",
+                    type: 'post',
+                    data: sendParms,
+                    async: true,
+                    timeout: 60000,
+                    dataType: 'json',
+                    beforeSend: function () {
+
+                    },
+                    success: function (outData) {
+                        if (outData.StatusCode == 200) {
+                            var list = outData.Data;
+                            if (list && list.length>0) {
+                                var previewTpl = document.getElementById("previewTpl").innerHTML;
+                                layui.laytpl(previewTpl).render(list, function (html) {
+                                    $("#preview").html(html);
+                                });
+                            }
+
+                        } else {
+                            layer.msg(outData.Message, { time: 1000 });
+                        }
+                    },
+                    complete: function () {
+                    },
+                    error: function () {
+                    }
+                });
+            }
+            function getLib() {
+                var sendParms = {
+                    doubanID: movie_doubanID
+                };
+                Ajax({
+                    url: "GetResourceQuantity",
+                    type: 'post',
+                    data: sendParms,
+                    async: true,
+                    timeout: 60000,
+                    dataType: 'json',
+                    beforeSend: function () {
+
+                    },
+                    success: function (outData) {
+                        if (outData.StatusCode == 200) {
+                            var lib_menuTpl = document.getElementById("lib_menuTpl").innerHTML;
+                            layui.laytpl(lib_menuTpl).render(outData.Data, function (html) {
+                                $("#lib_menu").html(html);
+                            });
+                            if ($(".lib_menu_li:eq(0)")) {
+                                $(".lib_menu_li:eq(0)").trigger("click");
+                            }
+                        } else {
+                            layer.msg(outData.Message, { time: 1000 });
+                        }
+                    },
+                    complete: function () {
+                    },
+                    error: function () {
+                    }
+                });
+            }
+            function getCelebrity() {
+                var sendParms = {
+                    doubanID: movie_doubanID
+                };
+                Ajax({
+                    url: "GetCelebrity",
+                    type: 'post',
+                    data: sendParms,
+                    async: true,
+                    timeout: 60000,
+                    dataType: 'json',
+                    beforeSend: function () {
+
+                    },
+                    success: function (outData) {
+                        if (outData.StatusCode == 200) {
+                            var celebrityTpl = document.getElementById("celebrityTpl").innerHTML;
+                            layui.laytpl(celebrityTpl).render(outData.Data, function (html) {
+                                $("#celebrity").html(html);
+                            });
+
+                        } else {
+                            layer.msg(outData.Message, { time: 1000 });
+                        }
+                    },
+                    complete: function () {
+                    },
+                    error: function () {
+                    }
+                });
+            }
+            function getDownload() {
+                var sendParms = {
+                    doubanID: movie_doubanID
+                };
+                Ajax({
+                    url: "GetDownload",
+                    type: 'post',
+                    data: sendParms,
+                    async: true,
+                    timeout: 60000,
+                    dataType: 'json',
+                    beforeSend: function () {
+
+                    },
+                    success: function (outData) {
+                        if (outData.StatusCode == 200) {
+                            var downloadTpl = document.getElementById("downloadTpl").innerHTML;
+                            layui.laytpl(downloadTpl).render(outData.Data, function (html) {
+                                $("#download").html(html);
+                            });
+                            if ($(".download_li:eq(0)")) {
+                                $(".download_li:eq(0)").trigger("click");
+                            }
+                        } else {
+                            layer.msg(outData.Message, { time: 1000 });
+                        }
+                    },
+                    complete: function () {
+                    },
+                    error: function () {
+                    }
+                });
+            }
+            function getSubtitle() {
+                var sendParms = {
+                    doubanID: movie_doubanID
+                };
+                Ajax({
+                    url: "GetSubtitle",
+                    type: 'post',
+                    data: sendParms,
+                    async: true,
+                    timeout: 60000,
+                    dataType: 'json',
+                    beforeSend: function () {
+
+                    },
+                    success: function (outData) {
+                        if (outData.StatusCode == 200) {
+                            var subtitleTpl = document.getElementById("subtitleTpl").innerHTML;
+                            layui.laytpl(subtitleTpl).render(outData.Data, function (html) {
+                                $("#subtitle").html(html);
+                            });
+                        } else {
+                            layer.msg(outData.Message, { time: 1000 });
+                        }
+                    },
+                    complete: function () {
+                    },
+                    error: function () {
+                    }
+                });
+            }
+            function getPlayer() {
+                var sendParms = {
+                    doubanID: movie_doubanID
+                };
+                Ajax({
+                    url: "GetPlayer",
+                    type: 'post',
+                    data: sendParms,
+                    async: true,
+                    timeout: 60000,
+                    dataType: 'json',
+                    beforeSend: function () {
+
+                    },
+                    success: function (outData) {
+                        if (outData.StatusCode == 200) {
+                            var playerTpl = document.getElementById("playerTpl").innerHTML;
+                            layui.laytpl(playerTpl).render(outData.Data, function (html) {
+                                $("#player").html(html);
+                            });
+                            if ($(".player_li:eq(0)")) {
+                                $(".player_li:eq(0)").trigger("click");
+                            }
+                        } else {
+                            layer.msg(outData.Message, { time: 1000 });
+                        }
+                    },
+                    complete: function () {
+                    },
+                    error: function () {
+                    }
+                });
+            }
+        </script>
+    }
+}

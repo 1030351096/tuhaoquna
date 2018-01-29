@@ -1,0 +1,13 @@
+C:\Users\admin\Documents\Visual Studio 2017\Projects\TuHaoQuNa\DripOldDriver.Data\bin\Debug\DripOldDriver.Data.dll
+C:\Users\admin\Documents\Visual Studio 2017\Projects\TuHaoQuNa\DripOldDriver.Data\bin\Debug\DripOldDriver.Data.pdb
+C:\Users\admin\Documents\Visual Studio 2017\Projects\TuHaoQuNa\DripOldDriver.Data\bin\Debug\zh-TW\DripOldDriver.Data.resources.dll
+C:\Users\admin\Documents\Visual Studio 2017\Projects\TuHaoQuNa\DripOldDriver.Data\bin\Debug\DripOldDriver.dll
+C:\Users\admin\Documents\Visual Studio 2017\Projects\TuHaoQuNa\DripOldDriver.Data\bin\Debug\DripOldDriver.pdb
+C:\Users\admin\Documents\Visual Studio 2017\Projects\TuHaoQuNa\DripOldDriver.Data\bin\Debug\zh-TW\DripOldDriver.resources.dll
+C:\Users\admin\Documents\Visual Studio 2017\Projects\TuHaoQuNa\DripOldDriver.Data\obj\Debug\DripOldDriver.Data.csprojResolveAssemblyReference.cache
+C:\Users\admin\Documents\Visual Studio 2017\Projects\TuHaoQuNa\DripOldDriver.Data\obj\Debug\DripOldDriver.Data.Localization.Resource.resources
+C:\Users\admin\Documents\Visual Studio 2017\Projects\TuHaoQuNa\DripOldDriver.Data\obj\Debug\DripOldDriver.Data.Localization.Resource.zh-TW.resources
+C:\Users\admin\Documents\Visual Studio 2017\Projects\TuHaoQuNa\DripOldDriver.Data\obj\Debug\DripOldDriver.Data.csproj.GenerateResource.Cache
+C:\Users\admin\Documents\Visual Studio 2017\Projects\TuHaoQuNa\DripOldDriver.Data\obj\Debug\zh-TW\DripOldDriver.Data.resources.dll
+C:\Users\admin\Documents\Visual Studio 2017\Projects\TuHaoQuNa\DripOldDriver.Data\obj\Debug\DripOldDriver.Data.dll
+C:\Users\admin\Documents\Visual Studio 2017\Projects\TuHaoQuNa\DripOldDriver.Data\obj\Debug\DripOldDriver.Data.pdb

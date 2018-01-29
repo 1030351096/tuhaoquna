@@ -1,0 +1,15 @@
+C:\Users\admin\Documents\Visual Studio 2017\Projects\TuHaoQuNa\ConsoleAppTest\bin\Debug\ConsoleAppTest.exe.config
+C:\Users\admin\Documents\Visual Studio 2017\Projects\TuHaoQuNa\ConsoleAppTest\bin\Debug\ConsoleAppTest.exe
+C:\Users\admin\Documents\Visual Studio 2017\Projects\TuHaoQuNa\ConsoleAppTest\bin\Debug\ConsoleAppTest.pdb
+C:\Users\admin\Documents\Visual Studio 2017\Projects\TuHaoQuNa\ConsoleAppTest\bin\Debug\DripOldDriver.Data.dll
+C:\Users\admin\Documents\Visual Studio 2017\Projects\TuHaoQuNa\ConsoleAppTest\bin\Debug\DripOldDriver.dll
+C:\Users\admin\Documents\Visual Studio 2017\Projects\TuHaoQuNa\ConsoleAppTest\bin\Debug\TuHaoQuNa.Domain.dll
+C:\Users\admin\Documents\Visual Studio 2017\Projects\TuHaoQuNa\ConsoleAppTest\bin\Debug\DripOldDriver.Data.pdb
+C:\Users\admin\Documents\Visual Studio 2017\Projects\TuHaoQuNa\ConsoleAppTest\bin\Debug\DripOldDriver.pdb
+C:\Users\admin\Documents\Visual Studio 2017\Projects\TuHaoQuNa\ConsoleAppTest\bin\Debug\TuHaoQuNa.Domain.pdb
+C:\Users\admin\Documents\Visual Studio 2017\Projects\TuHaoQuNa\ConsoleAppTest\bin\Debug\TuHaoQuNa.Domain.dll.config
+C:\Users\admin\Documents\Visual Studio 2017\Projects\TuHaoQuNa\ConsoleAppTest\bin\Debug\zh-TW\DripOldDriver.Data.resources.dll
+C:\Users\admin\Documents\Visual Studio 2017\Projects\TuHaoQuNa\ConsoleAppTest\bin\Debug\zh-TW\DripOldDriver.resources.dll
+C:\Users\admin\Documents\Visual Studio 2017\Projects\TuHaoQuNa\ConsoleAppTest\obj\Debug\ConsoleAppTest.csprojResolveAssemblyReference.cache
+C:\Users\admin\Documents\Visual Studio 2017\Projects\TuHaoQuNa\ConsoleAppTest\obj\Debug\ConsoleAppTest.exe
+C:\Users\admin\Documents\Visual Studio 2017\Projects\TuHaoQuNa\ConsoleAppTest\obj\Debug\ConsoleAppTest.pdb

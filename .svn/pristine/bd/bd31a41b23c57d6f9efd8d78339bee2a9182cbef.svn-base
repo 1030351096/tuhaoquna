@@ -1,0 +1,64 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{2AFC1553-A5C3-4C57-A88E-064DBD283B27}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>TuHaoQuNa.Business</RootNamespace>
+    <AssemblyName>TuHaoQuNa.Business</AssemblyName>
+    <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Config_BLL.cs" />
+    <Compile Include="Download_BLL.cs" />
+    <Compile Include="Movie_BLL.cs" />
+    <Compile Include="Player_BLL.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Subtitle_BLL.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\DripOldDriver.Data\DripOldDriver.Data.csproj">
+      <Project>{f9a27274-5c53-4b42-8bef-81a47cf2c52f}</Project>
+      <Name>DripOldDriver.Data</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\DripOldDriver\DripOldDriver.csproj">
+      <Project>{bce9e8b1-e998-4733-8b4f-b30cd54bdda9}</Project>
+      <Name>DripOldDriver</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\TuHaoQuNa.Domain\TuHaoQuNa.Domain.csproj">
+      <Project>{00a03fca-5c3c-490f-bc25-80d9b1ec8331}</Project>
+      <Name>TuHaoQuNa.Domain</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+</Project>

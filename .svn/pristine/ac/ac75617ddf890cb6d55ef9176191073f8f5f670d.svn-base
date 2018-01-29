@@ -1,0 +1,4 @@
+﻿.swagger-section #header {
+    background-color: #353535;
+    padding: 14px;
+}

@@ -1,0 +1,86 @@
+<#
+if (string.IsNullOrEmpty(Namespace)) Namespace=ConnectionStringName;
+if (string.IsNullOrEmpty(RepoName) && !string.IsNullOrEmpty(ConnectionStringName)) RepoName=ConnectionStringName + "DB";
+if (string.IsNullOrEmpty(Namespace)) Namespace="PetaPoco";
+if (string.IsNullOrEmpty(RepoName)) RepoName="PetaPocoDB";
+#>
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Web;
+using DripOldDriver.Data;
+
+namespace <#=Namespace #>
+{
+<# if (GeneratePocos) { #>
+<#
+foreach(Table tbl in from t in tables where !t.Ignore select t)
+{
+#>
+    /// <summary>
+    /// <#=tbl.Description??""#>
+    /// </summary>
+	[DbConnection("<#=ConnectionStringName#>")]
+<# if (string.IsNullOrEmpty(tbl.Schema)) { #>
+	[TableName("<#=tbl.Name#>")]
+<# } else { #>
+	[TableName("<#=tbl.Schema + "." + tbl.Name#>")]
+<# } #>
+<# if (tbl.PK!=null && tbl.PK.IsAutoIncrement) { #>
+<# if (tbl.SequenceName==null) { #>
+	[PrimaryKey("<#=tbl.PK.Name#>")]
+<# } else { #>
+	[PrimaryKey("<#=tbl.PK.Name#>", sequenceName="<#=tbl.SequenceName#>")]
+<# } #>
+<# } #>
+<# if (tbl.PK!=null && !tbl.PK.IsAutoIncrement) { #>
+	[PrimaryKey("<#=tbl.PK.Name#>", autoIncrement=false)]
+<# } #>
+<# if (ExplicitColumns) { #>
+	[ExplicitColumns]
+<# } #>
+    public partial class <#=tbl.ClassName#>
+    {
+<#
+foreach(Column col in from c in tbl.Columns where !c.Ignore select c)
+{
+
+		// Column bindings
+#>
+		/// <summary>
+		/// <#=col.Description??""#>
+		/// </summary>  
+<# if (TrackModifiedColumns) { #>
+<# if (col.Name!=col.PropertyName) { #>
+        [Column("<#=col.Name#>")] 
+<# } else { #>
+<# if (ExplicitColumns) { #>
+        [Column] 
+<# } #>
+<# } #>
+		public <#=col.PropertyType #><#=CheckNullable(col)#> <#=col.PropertyName #> 
+		{ 
+			get
+			{
+				return _<#=col.PropertyName #>;
+			}
+			set
+			{
+				_<#=col.PropertyName #> = value;
+				MarkColumnModified("<#=col.Name#>");
+			}
+		}
+		<#=col.PropertyType #><#=CheckNullable(col)#> _<#=col.PropertyName #>;
+
+<# } else { #>
+<# if (col.Name!=col.PropertyName) { #>
+		[Column("<#=col.Name#>")] public <#=col.PropertyType #><#=CheckNullable(col)#> <#=col.PropertyName #> { get; set; }
+<# } else { #>
+		<# if (ExplicitColumns) { #>[Column] <# } #>public <#=col.PropertyType #><#=CheckNullable(col)#> <#=col.PropertyName #> { get; set; }
+<# } #>
+<# } #>
+<# } #>
+	}
+<# } #>
+<# } #>
+}

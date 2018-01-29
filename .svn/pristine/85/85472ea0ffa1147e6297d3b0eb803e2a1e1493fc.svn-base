@@ -1,0 +1,219 @@
+{
+	"index.html": {
+		"resources": [
+			"js/mui.min.js",
+			"fonts/mui.ttf",
+			"css/mui.min.css",
+			"js/update.js"
+		],
+		"refer": [
+			"index-menu.html",
+			"examples/accordion.html",
+			"examples/actionsheet.html",
+			"examples/actionsheet-plus.html",
+			"examples/badges.html",
+			"examples/ajax.html",
+			"examples/buttons.html",
+			"examples/buttons-with-block.html",
+			"examples/buttons-with-icons.html",
+			"examples/buttons-with-badges.html",
+			"examples/buttons-with-loading.html",
+			"examples/card.html",
+			"examples/checkbox.html",
+			"examples/slider-default.html",
+			"examples/slider-with-title.html",
+			"examples/slider-table-default.html",
+			"examples/slider-table-pagination.html",
+			"examples/grid-default.html",
+			"examples/grid-pagination.html",
+			"examples/input.html",
+			"examples/tableviews-with-badges.html",
+			"examples/tableviews.html",
+			"examples/list-with-input.html",
+			"examples/tableviews-with-collapses.html",
+			"examples/list-triplex-row.html",
+			"examples/tableviews-with-swipe.html",
+			"examples/media-list.html",
+			"examples/nav.html",
+			"examples/nav-nativeObj.html",
+			"examples/numbox.html",
+			"examples/nav_transparent_native.html",
+			"examples/offcanvas-drag-right-plus-main.html",
+			"examples/offcanvas-drag-left-plus-main.html",
+			"examples/pagination.html",
+			"examples/info.html",
+			"examples/picker.html",
+			"examples/popovers.html",
+			"examples/progressbar.html",
+			"examples/pullrefresh_with_tab.html",
+			"examples/radio.html",
+			"examples/tabbar.html",
+			"examples/range.html",
+			"examples/tab-webview-main.html",
+			"examples/tab-top-webview-main.html",
+			"examples/tab-with-viewpagerindicator.html",
+			"examples/typography.html",
+			"examples/best-practices/list-to-detail/listview.html",
+			"examples/setting.html",
+			"examples/lazyload-image.html",
+			"examples/indexed-list.html",
+			"examples/indexed-list-select.html",
+			"examples/ad.html",
+			"examples/offcanvas-drag-right.html"
+		]
+	},
+	"examples/accordion.html": {
+		"resources": [
+			"images/cbd.jpg",
+			"images/muwu.jpg",
+			"images/yuantiao.jpg",
+			"images/shuijiao.jpg"
+		]
+	},
+	"examples/buttons-with-block.html": {
+		"resources": [
+			"css/app.css"
+		]
+	},
+	"examples/card.html": {
+		"resources": [
+			"images/logo.png",
+			"images/cbd.jpg",
+			"images/yuantiao.jpg"
+		]
+	},
+	"examples/offcanvas-drag-right-plus-main.html": {
+		"refer": [
+			"examples/offcanvas-drag-right-plus-menu.html"
+		]
+	},
+	"examples/offcanvas-drag-left-plus-main.html": {
+		"refer": [
+			"examples/offcanvas-drag-left-plus-menu.html"
+		]
+	},
+	"examples/info.html": {
+		"resources": [
+			"images/qrcode.png"
+		]
+	},
+	"examples/pagination.html": {
+		"resources": [
+			"css/app.css"
+		]
+	},
+	"examples/picker.html": {
+		"resources": [
+			"js/mui.picker.js",
+			"js/mui.poppicker.js",
+			"js/city.data.js",
+			"css/mui.poppicker.css",
+			"css/mui.picker.css",
+			"js/city.data-3.js"
+		]
+	},
+	"examples/pullrefresh_with_tab.html": {
+		"resources": [
+			"js/mui.pullToRefresh.js",
+			"js/mui.pullToRefresh.material.js"
+		]
+	},
+	"examples/tabbar.html": {
+		"resources": [
+			"images/60x60.gif"
+		]
+	},
+	"examples/tab-webview-main.html": {
+		"resources": [
+			"examples/tab-webview-subpage-about.html"
+		],
+		"refer": [
+			"examples/tab-webview-subpage-setting.html",
+			"examples/tab-webview-subpage-chat.html",
+			"examples/tab-webview-subpage-contact.html",
+			"examples/tab-webview-subpage-about.html"
+		]
+	},
+	"examples/tab-top-webview-main.html": {
+		"resources": [
+			"js/webviewGroup.js",
+			"examples/tab-top-subpage-1.html"
+		],
+		"refer": [
+			"examples/tab-top-subpage-3.html",
+			"examples/tab-top-subpage-2.html",
+			"examples/tab-top-subpage-1.html",
+			"examples/tab-top-subpage-5.html",
+			"examples/tab-top-subpage-4.html"
+		]
+	},
+	"examples/best-practices/list-to-detail/detail.html": {
+		"resources": [
+			"examples/best-practices/list-to-detail/list-to-detail.css"
+		]
+	},
+	"examples/best-practices/list-to-detail/listview.html": {
+		"resources": [
+			"examples/best-practices/list-to-detail/vue.min.js"
+		],
+		"refer": [
+			"examples/best-practices/list-to-detail/detail.html"
+		]
+	},
+	"examples/setting.html": {
+		"resources": [
+			"css/feedback.css",
+			"images/logo.png",
+			"js/feedback.js",
+			"js/mui.view.js"
+		],
+		"refer": [
+			"examples/guide.html"
+		]
+	},
+	"examples/lazyload-image.html": {
+		"resources": [
+			"js/mui.lazyload.js",
+			"js/mui.lazyload.img.js"
+		]
+	},
+	"examples/indexed-list.html": {
+		"resources": [
+			"css/mui.indexedlist.css",
+			"js/mui.indexedlist.js"
+		]
+	},
+	"examples/input.html": {
+		"resources": [
+			"js/mui.min.js",
+			"fonts/mui.ttf",
+			"css/mui.min.css"
+		]
+	},
+	"examples/tab-webview-subpage-contact.html": {
+		"resources": [
+			"images/60x60.gif"
+		]
+	},
+	"index-menu.html": {
+		"refer": [
+			"examples/offcanvas-drag-left.html",
+			"examples/tableviews-with-swipe.html",
+			"examples/pullrefresh_main.html",
+			"examples/tab-with-viewpagerindicator.html"
+		]
+	},
+	"examples/tableviews-with-swipe.html": {
+		"resources": [
+			"css/app.css"
+		]
+	},
+	"examples/pullrefresh_main.html": {
+		"resources": [
+			"examples/pullrefresh_sub.html"
+		],
+		"refer": [
+			"examples/pullrefresh_sub.html"
+		]
+	}
+}

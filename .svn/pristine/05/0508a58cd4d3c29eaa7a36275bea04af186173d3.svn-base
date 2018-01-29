@@ -1,0 +1,22 @@
+﻿@{
+    //资源url
+    var lib_url = DripOldDriver.Cache.MemoryCache.Cache.Get<string>("TuHaoQuNa.LibUrl", () => System.Configuration.ConfigurationManager.AppSettings["TuHaoQuNa.LibUrl"]);
+}
+<section class="text-center height-60 imagebg" data-overlay="4">
+    <div class="background-image-holder" style="background: url(@lib_url/background/herobg.png); opacity: 1;">
+        <img alt="background" src="@lib_url/background/herobg.png">
+    </div>
+    <div class="container pos-vertical-center">
+        <div class="row">
+            <div class="col-sm-12">
+                <div class="typed-headline">
+                    <span class="h1 inline-block">tuhaoquna.com—土豪去哪</span>
+                </div>
+                <p class="lead">影迷的一片净土</p>
+                <a class="btn btn--primary type--uppercase" href="//shang.qq.com/wpa/qunwpa?idkey=046162de5a3e4a002806620e4d3b73cdb21518ee2bb2dba5e87edc47f09cb234">
+                    <span class="btn__text">加入土豪去哪</span>
+                </a>
+            </div>
+        </div>
+    </div>
+</section>

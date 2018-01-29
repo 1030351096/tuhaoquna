@@ -1,0 +1,764 @@
+<!DOCTYPE html>
+<html class="U_html_bg U_color_a">
+
+	<head>
+		<meta charset="utf-8">
+		<title>土豪去哪</title>
+		<meta name="robots" content="all">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=0, minimum-scale=1.0, maximum-scale=1.0">
+		<meta name="apple-mobile-web-app-capable" content="yes">
+		<meta name="apple-mobile-web-app-status-bar-style" content="black">
+		<meta name="HandheldFriendly" content="true">
+		<meta name="format-detection" content="telephone=no">
+
+		<link rel="stylesheet" href="css/play_vip.css">
+		<link rel="stylesheet" href="css/mui.min.css">
+
+		<style type="text/css">
+			/* 文字颜色1  视频海报图片第1亮色*/
+			
+			.U_html_bg,
+			.U_color_a {
+				color: rgba(216, 233, 245, 1);
+			}
+			
+			.U_svg_a {
+				fill: rgba(216, 233, 245, 1);
+			}
+			/* 文字颜色2  视频海报图片第2亮色*/
+			
+			.U_color_b {
+				color: rgba(255, 255, 255, .8);
+			}
+			
+			.U_svg_b {
+				fill: rgba(255, 255, 255, .8);
+			}
+			/* 背景 视频海报图片最暗色 */
+			
+			.U_html_bg {
+				background-color: rgba(42, 40, 54, 1);
+			}
+			/* 文字颜色3  视频海报图片第2亮色透明度60%*/
+			
+			.U_color_c {
+				color: rgba(255, 255, 255, .6);
+			}
+			
+			.U_svg_c {
+				fill: rgba(255, 255, 255, .6);
+			}
+			/**播放器海报遮罩**/
+			
+			.U_mask_a {
+				background-image: -webkit-linear-gradient(bottom, rgba(42, 40, 54, 1), rgba(42, 40, 54, .5) 30%, rgba(0, 0, 0, 0));
+				background-image: linear-gradient(to top, rgba(42, 40, 54, 1), rgba(42, 40, 54, .5) 30%, rgba(0, 0, 0, 0));
+			}
+		</style>
+
+		<style type="text/css">
+			.fpm-loading {
+				padding: 0;
+				margin: 0;
+				border: 0;
+				outline: 0;
+				font-weight: inherit;
+				font-style: inherit;
+				font-family: inherit;
+				font-size: 100%;
+				vertical-align: baseline;
+				width: 100%;
+				box-sizing: border-box;
+				text-align: center;
+				position: fixed;
+				left: 0;
+				top: 50%;
+				transform: translateY(-50%);
+				z-index: 1000
+			}
+			
+			.fpm-loading-dot {
+				background: #9e9e9e;
+				display: inline-block;
+				*display: inline;
+				*zoom: 1;
+				width: 12px;
+				height: 12px;
+				border-radius: 12px;
+				margin-right: 15px;
+				-webkit-animation-name: fpm-loadingAnim;
+				animation-name: fpm-loadingAnim;
+				-webkit-animation-duration: 1s;
+				animation-duration: 1s;
+				-webkit-animation-timing-function: ease;
+				animation-timing-function: ease;
+				-webkit-animation-iteration-count: infinite;
+				animation-iteration-count: infinite;
+				-webkit-animation-delay: 0.3s;
+				animation-delay: 0.3s;
+			}
+			
+			.fpm-loading-dot:first-child {
+				-webkit-animation-delay: 0s;
+				animation-delay: 0s;
+			}
+			
+			.fpm-loading-dot:last-child {
+				-webkit-animation-delay: 0.6s;
+				animation-delay: 0.6s;
+				margin-right: 0;
+			}
+			
+			@-webkit-keyframes fpm-loadingAnim {
+				0% {
+					opacity: 0.5;
+				}
+				100% {
+					opacity: 1;
+				}
+			}
+			
+			@keyframes fpm-loadingAnim {
+				0% {
+					opacity: 0.5;
+				}
+				100% {
+					opacity: 1;
+				}
+			}
+			
+			.fpm-loading-text-area {
+				margin-top: 20px;
+				text-align: center;
+			}
+			
+			.fpm-loading-txt-b,
+			.fpm-loading-txt-w {
+				display: inline-block;
+				margin: 0;
+				text-align: left;
+				font-size: 15px;
+			}
+			
+			.fpm-loading-txt-b {
+				color: #808080;
+			}
+			
+			.fpm-loading-txt-w {
+				color: #fff;
+			}
+			
+			.fpm-loading-btn {
+				position: relative;
+				display: block;
+				margin: 20px auto 0;
+				-webkit-appearance: none;
+				-moz-appearance: none;
+				appearance: none;
+				color: #fff;
+				padding: 0;
+				width: 8em;
+				height: 2.5em;
+				line-height: 2.5em;
+				font-size: 14px;
+				border: 0;
+				background-color: transparent;
+			}
+			
+			.fpm-loading-btn:after {
+				position: absolute;
+				content: '';
+				left: 0;
+				top: 0;
+				width: 200%;
+				height: 200%;
+				border: 1px solid #fff;
+				border-radius: 8px;
+				-webkit-transform-origin: 0 0;
+				transform-origin: 0 0;
+				-webkit-transform: scale(0.5);
+				transform: scale(0.5);
+			}
+			
+			.fpm-loading-btn:active {
+				opacity: .8;
+			}
+		</style>
+	</head>
+
+	<body ontouchstart="" class="page_play_fm">
+		<header id="header" class="mui-bar mui-bar-transparent">
+			<a class="mui-action-back mui-icon mui-icon-left-nav mui-pull-left"></a>
+			<h1 class="mui-title">土豪去哪</h1>
+		</header>
+		<!--播放页 开始-->
+		<div class="container">
+			<div class="site_player" id="vip_player">
+				<div class="site_player_inner">
+
+					<!-- 好莱坞会员提示 开始 -->
+					<div class="mod_player_viptips">
+						<div class="player_poster">
+							<img class="poster_pic" src="//i.gtimg.cn/qqlive/img/jpgcache/files/qqvideo/hori/j/jzhtr2cgy35ejz0_big.jpg">
+							<span class="poster_mask_a U_mask_a"></span>
+							<span class="poster_mask_b U_mask_b"></span>
+						</div>
+
+					</div>
+					<!-- 好莱坞会员提示 结束 -->
+				</div>
+			</div>
+			<section class="mod_box U_box_bg_a" id="vip_title">
+				<div class="mod_bd">
+					<div class="mod_video_info">
+						<div class="video_tit U_color_a">那年花开月正圆</div>
+
+						<div class="video_types U_color_b">9.4分 / VIP / 古装 剧情</div>
+
+						<div class="video_starring U_color_b">主演 孙俪 陈晓 何润东 任重 胡杏儿 俞灏明 曾淇 刘佩琦</div>
+
+						<div class="video_detail">
+							<div class="detail_txt U_color_b _desc">1884年，周滢跟着养父周老四来到关中，输光钱财的周老四将周滢卖到沈家当丫头。周滢逃跑时躲进吴家东院大少爷吴聘的轿中，颇具商业头脑的周滢得到了吴蔚文的赏识，被获许留在吴家。沈星移怀疑沈家大少爷被吴聘暗杀，出手将其打伤。为救昏迷的吴聘，周滢嫁入吴家冲喜。吴聘身亡，吴家处境困窘，周滢决定要重振吴家东院。周滢入股陕西织布局，却遭受了朝廷反对洋务运动势力的打击，陕西机器织布局面临重建。为救深陷牢狱的周滢，吴家交出陕西机器织布局的所有股份以及与洋商的生丝合同换得周滢一命。出狱后的周滢重燃斗志建立泾阳布厂，吴家产业再次有了新起色。庚子国难，周滢用自己的方式担起了吴家大业的重振之风，又引领了动荡时局的改革之路。</div>
+
+						</div>
+
+					</div>
+				</div>
+			</section>
+			<section class="mod_box mod_sideslip_episodes U_box_bg_a" id="2016_episode">
+				<div class="mod_hd">
+					<h2 class="mod_title U_color_b">剧集</h2>
+
+				</div>
+				<div class="mod_bd">
+					<div class="mod_episodes_numbers" _hot="episodes">
+						<ul class="_list">
+
+							<li class="item current" vid="b00249eiunm">
+								<a class="U_color_b" href="/cover/j/jzhtr2cgy35ejz0.html?vid=b00249eiunm">01</a>
+							</li>
+
+							<li class="item" vid="o00245lltmz">
+								<a class="U_color_b" href="/cover/j/jzhtr2cgy35ejz0.html?vid=o00245lltmz">02</a>
+							</li>
+
+							<li class="item" vid="z0024ce76lk">
+								<a class="U_color_b" href="/cover/j/jzhtr2cgy35ejz0.html?vid=z0024ce76lk">03</a>
+							</li>
+
+							<li class="item" vid="m002433i07e">
+								<a class="U_color_b" href="/cover/j/jzhtr2cgy35ejz0.html?vid=m002433i07e">04</a>
+							</li>
+
+							<li class="item" vid="k0024ndsvws">
+								<a class="U_color_b" href="/cover/j/jzhtr2cgy35ejz0.html?vid=k0024ndsvws">05</a>
+							</li>
+
+							<li class="item" vid="f0024e7hhzy">
+								<a class="U_color_b" href="/cover/j/jzhtr2cgy35ejz0.html?vid=f0024e7hhzy">06</a>
+							</li>
+
+							<li class="item" vid="b0024ofbtv3">
+								<a class="U_color_b" href="/cover/j/jzhtr2cgy35ejz0.html?vid=b0024ofbtv3">07</a>
+							</li>
+
+							<li class="item" vid="i00241bwe1v">
+								<a class="U_color_b" href="/cover/j/jzhtr2cgy35ejz0.html?vid=i00241bwe1v">08</a>
+							</li>
+
+							<li class="item" vid="y0024kmy8up">
+								<a class="U_color_b" href="/cover/j/jzhtr2cgy35ejz0.html?vid=y0024kmy8up">09</a>
+							</li>
+
+							<li class="item" vid="s00241e2ptf">
+								<a class="U_color_b" href="/cover/j/jzhtr2cgy35ejz0.html?vid=s00241e2ptf">10</a>
+							</li>
+
+							<li class="item" vid="i0024czkr3v">
+								<a class="U_color_b" href="/cover/j/jzhtr2cgy35ejz0.html?vid=i0024czkr3v">11</a>
+							</li>
+
+							<li class="item" vid="f00242q0uya">
+								<a class="U_color_b" href="/cover/j/jzhtr2cgy35ejz0.html?vid=f00242q0uya">12</a>
+							</li>
+
+							<li class="item" vid="c0024enp8l7">
+								<a class="U_color_b" href="/cover/j/jzhtr2cgy35ejz0.html?vid=c0024enp8l7">13</a>
+							</li>
+
+							<li class="item" vid="k0024csp0z3">
+								<a class="U_color_b" href="/cover/j/jzhtr2cgy35ejz0.html?vid=k0024csp0z3">14</a>
+							</li>
+
+							<li class="item" vid="y0024s0j1mj">
+								<a class="U_color_b" href="/cover/j/jzhtr2cgy35ejz0.html?vid=y0024s0j1mj">15</a>
+							</li>
+
+							<li class="item" vid="e0024l1mhqn">
+								<a class="U_color_b" href="/cover/j/jzhtr2cgy35ejz0.html?vid=e0024l1mhqn">16</a>
+							</li>
+
+							<li class="item" vid="g0024clxd5e">
+								<a class="U_color_b" href="/cover/j/jzhtr2cgy35ejz0.html?vid=g0024clxd5e">17</a>
+							</li>
+
+							<li class="item" vid="h0024uka4bv">
+								<a class="U_color_b" href="/cover/j/jzhtr2cgy35ejz0.html?vid=h0024uka4bv">18</a>
+							</li>
+
+							<li class="item" vid="j00243km1vl">
+								<a class="U_color_b" href="/cover/j/jzhtr2cgy35ejz0.html?vid=j00243km1vl">19</a>
+							</li>
+
+							<li class="item _mid_trailer" vid="u0024xq6mi6">
+								<a class="U_color_b" href="/cover/j/jzhtr2cgy35ejz0.html?vid=u0024xq6mi6">20<i class="mark_text_trailer">预</i></a>
+							</li>
+
+							<li class="item _mid_trailer" vid="x0024dfpyhu">
+								<a class="U_color_b" href="/cover/j/jzhtr2cgy35ejz0.html?vid=x0024dfpyhu">21<i class="mark_text_trailer">预</i></a>
+							</li>
+
+							<li class="item" vid="k002470sn5t">
+								<a class="U_color_b" href="/cover/j/jzhtr2cgy35ejz0.html?vid=k002470sn5t">20<i class="mark_text_vip">会员</i></a>
+							</li>
+
+							<li class="item" vid="d0024a7q8si">
+								<a class="U_color_b" href="/cover/j/jzhtr2cgy35ejz0.html?vid=d0024a7q8si">21<i class="mark_text_vip">会员</i></a>
+							</li>
+
+							<li class="item _tail_trailer" vid="w0024iimcih" style="display: none;">
+								<a class="U_color_b" href="/cover/j/jzhtr2cgy35ejz0.html?vid=w0024iimcih">22<i class="mark_text_trailer">预</i></a>
+							</li>
+
+							<li class="item _tail_trailer" vid="r0024jvsl8w" style="display: none;">
+								<a class="U_color_b" href="/cover/j/jzhtr2cgy35ejz0.html?vid=r0024jvsl8w">23<i class="mark_text_trailer">预</i></a>
+							</li>
+
+							<li class="item _tail_trailer" vid="s0024lqod7f" style="display: none;">
+								<a class="U_color_b" href="/cover/j/jzhtr2cgy35ejz0.html?vid=s0024lqod7f">24<i class="mark_text_trailer">预</i></a>
+							</li>
+
+							<li class="item _tail_trailer" vid="m0024dy0vpv" style="display: none;">
+								<a class="U_color_b" href="/cover/j/jzhtr2cgy35ejz0.html?vid=m0024dy0vpv">25<i class="mark_text_trailer">预</i></a>
+							</li>
+
+						</ul>
+					</div>
+				</div>
+			</section>
+			<section class="mod_box mod_sideslip_h mod_sideslip_figures_h U_box_bg_b" id="vip_prevue">
+				<div class="mod_hd">
+					<h2 class="mod_title U_color_b">精彩剧情预览</h2>
+				</div>
+				<div class="mod_bd">
+					<div class="mod_figures mod_figures_h">
+						<ul class="mod_figure _list">
+
+							<li class="item">
+								<a href="javascript:void(0);" class="figure" _rec="" _id="d188512rsg3" _hot="h5.detail.prevue_d188512rsg3">
+									<span class="figure_pic">
+                             <img src="//shp.qpic.cn/qqvideo_ori/0/d188512rsg3_496_280/0">
+                             <span class="mask_img"></span>
+									<span class="mask_duration">10秒</span>
+									</span>
+								</a>
+							</li>
+
+							<li class="item">
+								<a href="javascript:void(0);" class="figure" _rec="" _id="a188602yqix" _hot="h5.detail.prevue_a188602yqix">
+									<span class="figure_pic">
+                             <img src="">
+                             <span class="mask_img"></span>
+									<span class="mask_duration">0秒</span>
+									</span>
+								</a>
+							</li>
+
+							<li class="item">
+								<a href="javascript:void(0);" class="figure" _rec="" _id="z1885zlh3pq" _hot="h5.detail.prevue_z1885zlh3pq">
+									<span class="figure_pic">
+                             <img src="//shp.qpic.cn/qqvideo_ori/0/z1885zlh3pq_496_280/0">
+                             <span class="mask_img"></span>
+									<span class="mask_duration">10秒</span>
+									</span>
+								</a>
+							</li>
+
+							<li class="item">
+								<a href="javascript:void(0);" class="figure" _rec="" _id="n1885ok5yi9" _hot="h5.detail.prevue_n1885ok5yi9">
+									<span class="figure_pic">
+                             <img src="//shp.qpic.cn/qqvideo_ori/0/n1885ok5yi9_496_280/0">
+                             <span class="mask_img"></span>
+									<span class="mask_duration">8秒</span>
+									</span>
+								</a>
+							</li>
+
+							<li class="item">
+								<a href="javascript:void(0);" class="figure" _rec="" _id="p1885dbqbrx" _hot="h5.detail.prevue_p1885dbqbrx">
+									<span class="figure_pic">
+                             <img src="//shp.qpic.cn/qqvideo_ori/0/p1885dbqbrx_496_280/0">
+                             <span class="mask_img"></span>
+									<span class="mask_duration">10秒</span>
+									</span>
+								</a>
+							</li>
+
+							<li class="item">
+								<a href="javascript:void(0);" class="figure" _rec="" _id="h1885vopa4y" _hot="h5.detail.prevue_h1885vopa4y">
+									<span class="figure_pic">
+                             <img src="//shp.qpic.cn/qqvideo_ori/0/h1885vopa4y_496_280/0">
+                             <span class="mask_img"></span>
+									<span class="mask_duration">10秒</span>
+									</span>
+								</a>
+							</li>
+
+							<li class="item">
+								<a href="javascript:void(0);" class="figure" _rec="" _id="w18820pciux" _hot="h5.detail.prevue_w18820pciux">
+									<span class="figure_pic">
+                             <img src="//shp.qpic.cn/qqvideo_ori/0/w18820pciux_496_280/0">
+                             <span class="mask_img"></span>
+									<span class="mask_duration">10秒</span>
+									</span>
+								</a>
+							</li>
+
+							<li class="item">
+								<a href="javascript:void(0);" class="figure" _rec="" _id="l1879bcj661" _hot="h5.detail.prevue_l1879bcj661">
+									<span class="figure_pic">
+                             <img src="//shp.qpic.cn/qqvideo_ori/0/l1879bcj661_496_280/0">
+                             <span class="mask_img"></span>
+									<span class="mask_duration">8秒</span>
+									</span>
+								</a>
+							</li>
+
+							<li class="item">
+								<a href="javascript:void(0);" class="figure" _rec="" _id="k18790ib46z" _hot="h5.detail.prevue_k18790ib46z">
+									<span class="figure_pic">
+                             <img src="//shp.qpic.cn/qqvideo_ori/0/k18790ib46z_496_280/0">
+                             <span class="mask_img"></span>
+									<span class="mask_duration">10秒</span>
+									</span>
+								</a>
+							</li>
+
+							<li class="item">
+								<a href="javascript:void(0);" class="figure" _rec="" _id="k1885qjm91a" _hot="h5.detail.prevue_k1885qjm91a">
+									<span class="figure_pic">
+                             <img src="//shp.qpic.cn/qqvideo_ori/0/k1885qjm91a_496_280/0">
+                             <span class="mask_img"></span>
+									<span class="mask_duration">10秒</span>
+									</span>
+								</a>
+							</li>
+
+						</ul>
+					</div>
+				</div>
+			</section>
+
+			<section class="mod_box mod_sideslip_h mod_sideslip_figures_h U_box_bg_b" id="vip_movie_clips" style="">
+				<div class="mod_hd">
+					<h2 class="mod_title U_color_b">片花</h2>
+				</div>
+				<div class="mod_bd">
+					<div class="mod_figures mod_figures_h">
+						<ul class="mod_figure _list">
+
+							<li class="item">
+								<a href="/page/e/j/k/e0024mqcmjk.html" class="figure" _rec="" _id="e0024mqcmjk" _hot="h5.detail.movieclips_e0024mqcmjk">
+									<span class="figure_pic">
+                             <img src="//puui.qpic.cn/qqvideo_ori/0/e0024mqcmjk_496_280/0">
+                             <span class="mask_img"></span>
+									<span class="mask_duration">2分40秒</span>
+									</span>
+									<div class="figure_titles">
+										<span class="figure_title figure_title_multirow U_color_c"><span class="txt">气哭！周莹被陷害偷奸，惨遭吴家沉塘！</span></span>
+									</div>
+								</a>
+							</li>
+
+							<li class="item">
+								<a href="/page/x/f/o/x0024dbrnfo.html" class="figure" _rec="" _id="x0024dbrnfo" _hot="h5.detail.movieclips_x0024dbrnfo">
+									<span class="figure_pic">
+                             <img src="//puui.qpic.cn/qqvideo_ori/0/x0024dbrnfo_496_280/0">
+                             <span class="mask_img"></span>
+									<span class="mask_duration">1分34秒</span>
+									</span>
+									<div class="figure_titles">
+										<span class="figure_title figure_title_multirow U_color_c"><span class="txt">孩子没了！开棺验尸吴聘中毒而死，周莹流产</span></span>
+									</div>
+								</a>
+							</li>
+
+							<li class="item">
+								<a href="/page/b/o/w/b00246s6zow.html" class="figure" _rec="" _id="b00246s6zow" _hot="h5.detail.movieclips_b00246s6zow">
+									<span class="figure_pic">
+                             <img src="//puui.qpic.cn/qqvideo_ori/0/b00246s6zow_496_280/0">
+                             <span class="mask_img"></span>
+									<span class="mask_duration">2分58秒</span>
+									</span>
+									<div class="figure_titles">
+										<span class="figure_title figure_title_multirow U_color_c"><span class="txt">《那年花开》卫视预告：星移表白周莹再被拒绝，气到揍墙手流血</span></span>
+									</div>
+								</a>
+							</li>
+
+							<li class="item">
+								<a href="/page/p/t/o/p0024j6keto.html" class="figure" _rec="" _id="p0024j6keto" _hot="h5.detail.movieclips_p0024j6keto">
+									<span class="figure_pic">
+                             <img src="//puui.qpic.cn/qqvideo_ori/0/p0024j6keto_496_280/0">
+                             <span class="mask_img"></span>
+									<span class="mask_duration">26秒</span>
+									</span>
+									<div class="figure_titles">
+										<span class="figure_title figure_title_multirow U_color_c"><span class="txt">《那年花开》卫视预告：神秘黑衣人现身！星移被刺伤</span></span>
+									</div>
+								</a>
+							</li>
+
+							<li class="item">
+								<a href="/page/y/y/z/y0024hv22yz.html" class="figure" _rec="" _id="y0024hv22yz" _hot="h5.detail.movieclips_y0024hv22yz">
+									<span class="figure_pic">
+                             <img src="//puui.qpic.cn/qqvideo_ori/0/y0024hv22yz_496_280/0">
+                             <span class="mask_img"></span>
+									<span class="mask_duration">2分33秒</span>
+									</span>
+									<div class="figure_titles">
+										<span class="figure_title figure_title_multirow U_color_c"><span class="txt">《那年花开》卫视预告：星移叫板杜明礼！沈家也要出事了？</span></span>
+									</div>
+								</a>
+							</li>
+
+							<li class="item">
+								<a href="/page/x/i/q/x00244oh1iq.html" class="figure" _rec="" _id="x00244oh1iq" _hot="h5.detail.movieclips_x00244oh1iq">
+									<span class="figure_pic">
+                             <img src="//puui.qpic.cn/qqvideo_ori/0/x00244oh1iq_496_280/0">
+                             <span class="mask_img"></span>
+									<span class="mask_duration">2分19秒</span>
+									</span>
+									<div class="figure_titles">
+										<span class="figure_title figure_title_multirow U_color_c"><span class="txt">《那年花开》莹聘cp甜虐合集！黑白画面回顾各种感人瞬间</span></span>
+									</div>
+								</a>
+							</li>
+
+							<li class="item">
+								<a href="/page/a/k/t/a0024xczkkt.html" class="figure" _rec="" _id="a0024xczkkt" _hot="h5.detail.movieclips_a0024xczkkt">
+									<span class="figure_pic">
+                             <img src="//puui.qpic.cn/qqvideo_ori/0/a0024xczkkt_496_280/0">
+                             <span class="mask_img"></span>
+									<span class="mask_duration">1分52秒</span>
+									</span>
+									<div class="figure_titles">
+										<span class="figure_title figure_title_multirow U_color_c"><span class="txt">《那年花开》片场花絮：好心疼！周大爷狂虐晓公主</span></span>
+									</div>
+								</a>
+							</li>
+
+							<li class="item">
+								<a href="/page/b/n/z/b0024rvngnz.html" class="figure" _rec="" _id="b0024rvngnz" _hot="h5.detail.movieclips_b0024rvngnz">
+									<span class="figure_pic">
+                             <img src="//puui.qpic.cn/qqvideo_ori/0/b0024rvngnz_496_280/0">
+                             <span class="mask_img"></span>
+									<span class="mask_duration">2分50秒</span>
+									</span>
+									<div class="figure_titles">
+										<span class="figure_title figure_title_multirow U_color_c"><span class="txt">《那年花开》卫视预告：孩子没了！周莹被诬陷与人通奸竟要沉塘</span></span>
+									</div>
+								</a>
+							</li>
+
+							<li class="item">
+								<a href="/page/m/n/1/m0024cyjfn1.html" class="figure" _rec="" _id="m0024cyjfn1" _hot="h5.detail.movieclips_m0024cyjfn1">
+									<span class="figure_pic">
+                             <img src="//puui.qpic.cn/qqvideo_ori/0/m0024cyjfn1_496_280/0">
+                             <span class="mask_img"></span>
+									<span class="mask_duration">1分27秒</span>
+									</span>
+									<div class="figure_titles">
+										<span class="figure_title figure_title_multirow U_color_c"><span class="txt">《那年花开》老戏骨演技炸裂！周莹被赶出家门，老爷用心良苦</span></span>
+									</div>
+								</a>
+							</li>
+
+							<li class="item">
+								<a href="/page/x/2/5/x0024na7j25.html" class="figure" _rec="" _id="x0024na7j25" _hot="h5.detail.movieclips_x0024na7j25">
+									<span class="figure_pic">
+                             <img src="//puui.qpic.cn/qqvideo_ori/0/x0024na7j25_496_280/0">
+                             <span class="mask_img"></span>
+									<span class="mask_duration">3分15秒</span>
+									</span>
+									<div class="figure_titles">
+										<span class="figure_title figure_title_multirow U_color_c"><span class="txt">吴家惨被抄家！老爷被铐走，夫人哭晕</span></span>
+									</div>
+								</a>
+							</li>
+
+							<li class="item">
+								<a href="/page/m/w/v/m0024wuk4wv.html" class="figure" _rec="" _id="m0024wuk4wv" _hot="h5.detail.movieclips_m0024wuk4wv">
+									<span class="figure_pic">
+                             <img src="//puui.qpic.cn/qqvideo_ori/0/m0024wuk4wv_496_280/0">
+                             <span class="mask_img"></span>
+									<span class="mask_duration">26秒</span>
+									</span>
+									<div class="figure_titles">
+										<span class="figure_title figure_title_multirow U_color_c"><span class="txt">《那年花开》卫视预告：少奶奶有喜遭人陷害？杜明礼又下手</span></span>
+									</div>
+								</a>
+							</li>
+
+							<li class="item">
+								<a href="/page/h/4/s/h05463ghz4s.html" class="figure" _rec="" _id="h05463ghz4s" _hot="h5.detail.movieclips_h05463ghz4s">
+									<span class="figure_pic">
+                             <img src="//puui.qpic.cn/qqvideo_ori/0/h05463ghz4s_496_280/0">
+                             <span class="mask_img"></span>
+									<span class="mask_duration">1分33秒</span>
+									</span>
+									<div class="figure_titles">
+										<span class="figure_title figure_title_multirow U_color_c"><span class="txt">《那年花开》独家策划：信不信我抽你？陈晓发脾气，却遭少奶奶白眼</span></span>
+									</div>
+								</a>
+							</li>
+
+							<li class="item">
+								<a href="/page/c/a/w/c0024gwtxaw.html" class="figure" _rec="" _id="c0024gwtxaw" _hot="h5.detail.movieclips_c0024gwtxaw">
+									<span class="figure_pic">
+                             <img src="//puui.qpic.cn/qqvideo_ori/0/c0024gwtxaw_496_280/0">
+                             <span class="mask_img"></span>
+									<span class="mask_duration">25分21秒</span>
+									</span>
+									<div class="figure_titles">
+										<span class="figure_title figure_title_multirow U_color_c"><span class="txt">【演讲实录】俞灏明走心演讲感动全场  不管未来发生什么意外都不怕了</span></span>
+									</div>
+								</a>
+							</li>
+
+							<li class="item">
+								<a href="/page/u/g/q/u0547gz3vgq.html" class="figure" _rec="" _id="u0547gz3vgq" _hot="h5.detail.movieclips_u0547gz3vgq">
+									<span class="figure_pic">
+                             <img src="//puui.qpic.cn/qqvideo_ori/0/u0547gz3vgq_496_280/0">
+                             <span class="mask_img"></span>
+									<span class="mask_duration">5分34秒</span>
+									</span>
+									<div class="figure_titles">
+										<span class="figure_title figure_title_multirow U_color_c"><span class="txt">吴老爷含冤被害，临终前传周莹大印让其掌管吴家！</span></span>
+									</div>
+								</a>
+							</li>
+
+							<li class="item">
+								<a href="/page/t/z/m/t05478w84zm.html" class="figure" _rec="" _id="t05478w84zm" _hot="h5.detail.movieclips_t05478w84zm">
+									<span class="figure_pic">
+                             <img src="//puui.qpic.cn/qqvideo_ori/0/t05478w84zm_496_280/0">
+                             <span class="mask_img"></span>
+									<span class="mask_duration">5分30秒</span>
+									</span>
+									<div class="figure_titles">
+										<span class="figure_title figure_title_multirow U_color_c"><span class="txt">再见了吴聘！5分钟看完《那年花开》何润东与孙俪所有戏份</span></span>
+									</div>
+								</a>
+							</li>
+
+							<li class="item">
+								<a href="/page/j/p/6/j0547rxmnp6.html" class="figure" _rec="" _id="j0547rxmnp6" _hot="h5.detail.movieclips_j0547rxmnp6">
+									<span class="figure_pic">
+                             <img src="//puui.qpic.cn/qqvideo_ori/0/j0547rxmnp6_496_280/0">
+                             <span class="mask_img"></span>
+									<span class="mask_duration">5分50秒</span>
+									</span>
+									<div class="figure_titles">
+										<span class="figure_title figure_title_multirow U_color_c"><span class="txt">盘点《那年花开》何润东对孙俪说过的最美情话，孙俪感动彻底沦陷</span></span>
+									</div>
+								</a>
+							</li>
+
+							<li class="item">
+								<a href="/page/q/7/j/q0547lh267j.html" class="figure" _rec="" _id="q0547lh267j" _hot="h5.detail.movieclips_q0547lh267j">
+									<span class="figure_pic">
+                             <img src="//puui.qpic.cn/qqvideo_ori/0/q0547lh267j_496_280/0">
+                             <span class="mask_img"></span>
+									<span class="mask_duration">1分32秒</span>
+									</span>
+									<div class="figure_titles">
+										<span class="figure_title figure_title_multirow U_color_c"><span class="txt">吴聘死因大揭秘 到底是酒是甑糕还是酸枣？</span></span>
+									</div>
+								</a>
+							</li>
+
+							<li class="item">
+								<a href="/page/q/s/f/q0546rmfksf.html" class="figure" _rec="" _id="q0546rmfksf" _hot="h5.detail.movieclips_q0546rmfksf">
+									<span class="figure_pic">
+                             <img src="//puui.qpic.cn/qqvideo_ori/0/q0546rmfksf_496_280/0">
+                             <span class="mask_img"></span>
+									<span class="mask_duration">3分6秒</span>
+									</span>
+									<div class="figure_titles">
+										<span class="figure_title figure_title_multirow U_color_c"><span class="txt">那年花开：为爱打call邓超孙俪那年花开版《狐狸精》亮爆眼球</span></span>
+									</div>
+								</a>
+							</li>
+
+							<li class="item">
+								<a href="/page/h/2/q/h05471xu72q.html" class="figure" _rec="" _id="h05471xu72q" _hot="h5.detail.movieclips_h05471xu72q">
+									<span class="figure_pic">
+                             <img src="//puui.qpic.cn/qqvideo_ori/0/h05471xu72q_496_280/0">
+                             <span class="mask_img"></span>
+									<span class="mask_duration">4分6秒</span>
+									</span>
+									<div class="figure_titles">
+										<span class="figure_title figure_title_multirow U_color_c"><span class="txt">《那年花开》如果时光倒流，避免吴聘哥哥领盒饭的8大方法</span></span>
+									</div>
+								</a>
+							</li>
+
+							<li class="item">
+								<a href="/page/e/v/7/e05468d4wv7.html" class="figure" _rec="" _id="e05468d4wv7" _hot="h5.detail.movieclips_e05468d4wv7">
+									<span class="figure_pic">
+                             <img src="//puui.qpic.cn/qqvideo_ori/0/e05468d4wv7_496_280/0">
+                             <span class="mask_img"></span>
+									<span class="mask_duration">1分26秒</span>
+									</span>
+									<div class="figure_titles">
+										<span class="figure_title figure_title_multirow U_color_c"><span class="txt">邓超的手机屏幕炸裂，不是因为陈晓的屁股，这一幕应该才是关键</span></span>
+									</div>
+								</a>
+							</li>
+
+						</ul>
+					</div>
+				</div>
+			</section>
+
+		</div>
+		<!--播放页 结束-->
+		<script type="text/javascript" src="js/mui.min.js"></script>
+		<script type="text/javascript" src="js/jquery-1.10.2.min.js"></script>
+		<script type="text/javascript" src="js/template-web.js"></script>
+		<script type="text/javascript" src="js/config.js"></script>
+		<script type="text/javascript" src="js/common.js"></script>
+		<script type="text/javascript" src="js/mui.lazyload.js"></script>
+		<script type="text/javascript" src="js/mui.lazyload.img.js"></script>
+		<script type="text/javascript" language="JavaScript">
+			var url=location.search;
+			var Request = new Object();
+			if(url.indexOf("?")!=-1)
+			{
+			　　var str = url.substr(1)　//去掉?号
+			　　strs = str.split("&");
+			　　for(var i=0;i<strs.length;i++)
+			　　{
+			 　　　 Request[strs[i ].split("=")[0]]=unescape(strs[ i].split("=")[1]);
+			　　}
+			}
+			var id = Request["id"];
+			
+			$(function () {
+				
+			});
+		</script>
+	</body>
+
+</html>

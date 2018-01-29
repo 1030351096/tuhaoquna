@@ -1,0 +1,43 @@
+﻿@{ 
+    Layout = "";
+    //资源url
+    var lib_url = DripOldDriver.Cache.MemoryCache.Cache.Get<string>("TuHaoQuNa.LibUrl", () => System.Configuration.ConfigurationManager.AppSettings["TuHaoQuNa.LibUrl"]);
+}
+<!doctype html>
+<html>
+<head>
+    <title>404错误</title>
+    <meta charset="UTF-8" />
+    <link href="~/Content/404.css" rel="stylesheet" />
+    <script src="~/Scripts/jquery-1.10.2.min.js"></script>
+    <script src="~/Scripts/scriptalizer.js"></script>
+    <script type="text/javascript">
+        $(function(){
+            $('#parallax').jparallax({});
+        });
+    </script>
+
+</head>
+<body>
+
+    <div id="parallax">
+        <div class="error1">
+            <img src="@lib_url/img/wand.jpg" alt="Mauer" />
+        </div>
+        <div class="error2">
+            <img src="@lib_url/img/licht.png" alt="Licht" />
+        </div>
+        <div class="error3">
+            <img src="@lib_url/img/halo1.png" alt="Halo1" />
+        </div>
+        <div class="error4">
+            <img src="@lib_url/img/halo2.png" alt="Halo2" />
+        </div>
+        <div class="error5">
+            <img src="@lib_url/img/batman-404.png" alt="Batcave 404" />
+        </div>
+    </div>
+
+
+</body>
+</html>

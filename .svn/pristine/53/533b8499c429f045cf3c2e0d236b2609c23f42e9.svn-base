@@ -1,0 +1,27 @@
+﻿<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>ckplayer简单调用演示</title>
+</head>
+<body>
+<div id="a1"></div>
+<script type="text/javascript" src="ckplayer/ckplayer.js" charset="utf-8"></script>
+<script type="text/javascript">
+	var flashvars={
+        f:'http://pcvideows.titan.mgtv.com/c1/2017/08/16_0/9ACA05C226CCBB859EC1BFC18FAE046C_20170816_1_1_497.mp4?arange=0&pm=Rx29SMk~zUuSyZqPfkPRh7LdHZIR5SUA7~Uk60BHjN63KAT_IlW5TZc2fnDW_fWuAoRNimrvDAUIymSyf7AnhOBgM9W26~_G5IcKOdsgbP~cqT2qcDifPapeLx2jOd9uvLoEcmWQfYopAt~zxnxLcjSIYzRGvRevga8ZWSqF3toAbmEyolspr1aYSmO0wO_iH_jOj9fkkeS_YikZUO72H~9KkxVvkTxS6wD4Bf13dP73BWoNT8bHcEf9BWXmxe6SoYCUb9aqcMGzTjKtIiW9EHQISaa19yGERlsEpe4x_jvGgsoh4FqPUo0~2nAHfSCec1~z8p~QzKgDJ0gbI6_pSEeGFuzPONL8VMv~sIwQBbVWjuXBcJBIuNpwJImceTMgCBd4ox3gYa~JPcc5_zaj1Q--',
+		c:0,
+		b:1,
+		//i:'http://www.ckplayer.com/static/images/cqdw.jpg'
+		};
+	var video=['http://img.ksbbs.com/asset/Mon_1605/0ec8cc80112a2d6.mp4->video/mp4'];
+	CKobject.embed('ckplayer/ckplayer.swf','a1','ckplayer_a1','600','400',false,flashvars,video)	
+	function closelights(){//关灯
+		alert(' 本演示不支持开关灯');
+	}
+	function openlights(){//开灯
+		alert(' 本演示不支持开关灯');
+	}
+</script>
+</body>
+</html>

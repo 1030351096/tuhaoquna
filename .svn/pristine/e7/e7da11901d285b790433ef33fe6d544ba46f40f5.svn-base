@@ -1,0 +1,82 @@
+﻿@{ 
+    //资源url
+    var lib_url = DripOldDriver.Cache.MemoryCache.Cache.Get<string>("TuHaoQuNa.LibUrl", () => System.Configuration.ConfigurationManager.AppSettings["TuHaoQuNa.LibUrl"]);
+}
+<!DOCTYPE html>
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+    <meta charset="utf-8" />
+    <title>@(string.IsNullOrWhiteSpace(ViewBag.Title) ? "" : ViewBag.Title + " - ")土豪去哪</title>
+    <meta name="keywords" content="@(string.IsNullOrWhiteSpace(ViewBag.Keywords) ? "" : ViewBag.Keywords + ",")土豪去哪,高清电影,蓝光原盘,3D电影,1080p电影,高清电影下载,蓝光原盘下载,最新电影,在线电影,电影字幕,在线影评,影评,在线电影,无广告电影">
+    <meta name="description" content="@(string.IsNullOrWhiteSpace(ViewBag.Description) ? "" : ViewBag.Description + " ")tuhaoquna.com 土豪去哪是国内独树一帜的影视站点，资源全面，设计优雅，毫无广告，极佳的用户体验，是下载电影、下载字幕、观看影片最佳网站。">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="renderer" content="webkit">
+    <meta http-equiv="Content-Type" content="text/html;charset=UTF-8">
+    <link rel="icon" href="~/favicon.ico" />
+    @Styles.Render("~/css/main")
+    @RenderSection("Styles", required: false)
+</head>
+<body>
+    <div class="nav-container">
+        @RenderSection("Backgrounds", required: false)
+        <nav class="bar bar-2 hidden-xs bar--absolute bar--transparent">
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-2 hidden-xs hidden-sm">
+                        <div class="bar__module">
+                            <a href="/">
+                                <img class="logo logo-dark" alt="logo" src="@lib_url/img/logo-dark.png" />
+                                <img class="logo logo-light" alt="logo" src="@lib_url/img/logo-light.png" />
+                            </a>
+                        </div>
+                    </div>
+                    <div class="col-md-8">
+                        <div class="bar__module">
+                            <ul class="menu-horizontal">
+                                <li class="dropdown">
+                                    <a href="/movie">
+                                        <span class="dropdown__trigger" style="font-size:16px;">电影</span>
+                                    </a>
+                                </li>
+                                <li class="dropdown">
+                                    <a href="/tvshow">
+                                        <span class="dropdown__trigger" style="font-size:16px;">电视剧</span>
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="/search">
+                                        <i class="stack-search" style="font-size:16px;"></i>
+                                    </a>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </nav>
+    </div>
+    <div class="main-container">
+        @RenderBody()
+    </div>
+    <section class="space--xs imagebg" style="background-color: #353535;">
+        <div class="container">
+            <div class="row">
+                <div class="cta cta--horizontal text-center-xs">
+                    <div class="col-sm-4" style="color: #efe"></div>
+                    <div class="col-sm-5">
+                        <p class="lead" style="color: #efe">加入土豪去哪官方群，与广大影迷交流</p>
+                    </div>
+                    <div class="col-sm-3 text-right text-center-xs">
+                        <a class="btn btn--primary-1 type--uppercase" target="_blank" href="//shang.qq.com/wpa/qunwpa?idkey=046162de5a3e4a002806620e4d3b73cdb21518ee2bb2dba5e87edc47f09cb234">
+                            <span class="btn__text">立即加入QQ群</span>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    @RenderSection("Scripts", required: false)
+    @Scripts.Render("~/js/statistics")
+</body>
+</html>

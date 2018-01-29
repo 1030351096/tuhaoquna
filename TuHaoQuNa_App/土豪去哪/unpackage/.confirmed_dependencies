@@ -1,0 +1,194 @@
+{
+  "index.html": {
+    "resources": [
+      "js/mui.min.js",
+      "css/mui.min.css",
+      "fonts/mui.ttf",
+      "examples/media-list.html",
+      "examples/accordion.html",
+      "examples/input.html",
+      "examples/tab-webview-subpage-chat.html",
+      "view/tab-webview-main.html",
+      "tab-webview-main.html",
+      "home.html",
+      "film.html"
+    ],
+    "refer": [
+      "view/guide.html",
+      "index-menu.html",
+      "examples/media-list.html",
+      "examples/accordion.html",
+      "examples/input.html",
+      "examples/tab-webview-subpage-chat.html",
+      "view/tab-webview-main.html",
+      "tab-webview-main.html",
+      "home.html",
+      "film.html"
+    ]
+  },
+  "examples/media-list.html": {
+    "resources": [
+      "index.html"
+    ],
+    "refer": [
+      "index.html"
+    ]
+  },
+  "examples/input.html": {
+    "resources": [
+      "index.html"
+    ],
+    "refer": [
+      "index.html"
+    ]
+  },
+  "examples/tab-webview-subpage-chat.html": {
+    "resources": [
+      "fonts/mui.ttf"
+    ],
+    "refer": []
+  },
+  "view/tab-webview-main.html": {
+    "resources": [
+      "fonts/mui.ttf",
+      "view/tab-webview-subpage-chat.html"
+    ],
+    "refer": [
+      "view/tab-webview-subpage-chat.html"
+    ]
+  },
+  "tab-webview-main.html": {
+    "resources": [
+      "tab-webview-subpage-about.html",
+      "fonts/mui.ttf",
+      "js/mui.min.js",
+      "css/mui.min.css",
+      "tab-webview-subpage-home.html"
+    ],
+    "refer": [
+      "tab-webview-subpage-about.html",
+      "tab-webview-subpage-setting.html",
+      "tab-webview-subpage-chat.html",
+      "tab-webview-subpage-contact.html",
+      "tab-webview-subpage-home.html",
+      "tab-webview-subpage-movie.html",
+      "tab-webview-subpage-tvshow.html",
+      "tab-webview-subpage-search.html"
+    ]
+  },
+  "tab-webview-subpage-about.html": {
+    "resources": [
+      "js/mui.min.js",
+      "css/mui.min.css"
+    ],
+    "refer": []
+  },
+  "tab-webview-subpage-chat.html": {
+    "resources": [
+      "js/mui.min.js",
+      "fonts/mui.ttf",
+      "css/mui.min.css"
+    ],
+    "refer": []
+  },
+  "tab-webview-subpage-contact.html": {
+    "resources": [
+      "css/mui.min.css",
+      "js/mui.min.js"
+    ],
+    "refer": []
+  },
+  "tab-webview-subpage-setting.html": {
+    "resources": [
+      "js/mui.min.js",
+      "fonts/mui.ttf",
+      "css/mui.min.css"
+    ],
+    "refer": []
+  },
+  "tab-webview-subpage-home.html": {
+    "resources": [
+      "js/mui.min.js",
+      "css/mui.min.css",
+      "fonts/mui.ttf"
+    ],
+    "refer": []
+  },
+  "tab-webview-subpage-search.html": {
+    "resources": [
+      "js/mui.min.js",
+      "fonts/mui.ttf",
+      "css/mui.min.css",
+      "js/common.js",
+      "js/template-web.js",
+      "js/jquery-1.10.2.min.js",
+      "js/mui.lazyload.js",
+      "js/config.js",
+      "js/mui.lazyload.img.js"
+    ],
+    "refer": []
+  },
+  "tab-webview-subpage-tvshow.html": {
+    "resources": [
+      "js/mui.min.js",
+      "css/mui.min.css",
+      "js/common.js",
+      "fonts/mui.ttf",
+      "js/template-web.js",
+      "js/jquery-1.10.2.min.js",
+      "js/mui.lazyload.js",
+      "js/config.js",
+      "js/mui.lazyload.img.js"
+    ],
+    "refer": []
+  },
+  "tab-webview-subpage-movie.html": {
+    "resources": [
+      "js/mui.min.js",
+      "fonts/mui.ttf",
+      "css/mui.min.css",
+      "js/common.js",
+      "js/config.js",
+      "js/jquery-1.10.2.min.js",
+      "js/handlebars.runtime-v4.0.10.js",
+      "js/handlebars-v4.0.10.js",
+      "js/template-web.js",
+      "js/mui.lazyload.js",
+      "js/mui.lazyload.img.js"
+    ],
+    "refer": [
+      "offcanvas-drag-left-plus-menu.html"
+    ]
+  },
+  "home.html": {
+    "resources": [
+      "tab-webview-subpage-home.html",
+      "fonts/mui.ttf",
+      "js/mui.min.js",
+      "css/mui.min.css"
+    ],
+    "refer": [
+      "tab-webview-subpage-movie.html",
+      "tab-webview-subpage-search.html",
+      "tab-webview-subpage-home.html",
+      "tab-webview-subpage-tvshow.html"
+    ]
+  },
+  "film.html": {
+    "resources": [
+      "js/common.js",
+      "fonts/mui.ttf",
+      "js/template-web.js",
+      "js/jquery-1.10.2.min.js",
+      "js/mui.lazyload.js",
+      "js/config.js",
+      "js/mui.lazyload.img.js",
+      "js/mui.min.js",
+      "css/mui.min.css",
+      "guide.html"
+    ],
+    "refer": [
+      "guide.html"
+    ]
+  }
+}

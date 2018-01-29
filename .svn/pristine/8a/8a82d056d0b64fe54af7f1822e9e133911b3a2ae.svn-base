@@ -1,0 +1,21 @@
+﻿@using DripOldDriver
+@model IEnumerable<TuHaoQuNa.Web.Models.Film>
+<div class="masonry">
+    @if (Model != null)
+    {
+        foreach (var item in Model)
+        {
+            <div class="masonry__item col-md-3 col-sm-6 col-xs-6" data-masonry-filter="@(item.Family==2?"电视剧":"电影")">
+                <a href="/subject/@item.DouBanID" target="_blank" class="block text-block">
+                    <div class="hover-shadow">
+                        <img class="poster" family="@(item.Family==2?"tvshow":"movie")" alt="@item.Name" src="@item.Poster" />
+                    </div>
+                </a>
+                <div class="text-center">
+                    <h5>@item.Name<span class="type--fine-print">@(item.Year.HasValue ? "("+item.Year.Value+")":"")</span></h5>
+                </div>
+            </div>
+        }
+    }
+</div>
+

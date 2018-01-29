@@ -1,0 +1,58 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 15
+VisualStudioVersion = 15.0.26430.16
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "3 Domain 领域层", "3 Domain 领域层", "{075187F6-C32C-43A8-8476-6AE4FA6A920E}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TuHaoQuNa.Domain", "TuHaoQuNa.Domain\TuHaoQuNa.Domain.csproj", "{00A03FCA-5C3C-490F-BC25-80D9B1EC8331}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "2 Application 应用层", "2 Application 应用层", "{E4196346-3FAA-4AEE-9821-9104EA339E4A}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "1 Presentation 展示层", "1 Presentation 展示层", "{6A62ADBC-9E0F-435D-AB46-8CDE5AC19A6D}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "4 Infrastructure 基础设施层", "4 Infrastructure 基础设施层", "{0F6765FF-0817-4904-9AFD-5C806869F451}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ConsoleAppTest", "ConsoleAppTest\ConsoleAppTest.csproj", "{EF64A637-49C9-4A33-814A-5C455516522A}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DripOldDriver", "DripOldDriver\DripOldDriver.csproj", "{BCE9E8B1-E998-4733-8B4F-B30CD54BDDA9}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DripOldDriver.Data", "DripOldDriver.Data\DripOldDriver.Data.csproj", "{F9A27274-5C53-4B42-8BEF-81A47CF2C52F}"
+EndProject
+Global
+	GlobalSection(SubversionScc) = preSolution
+		Svn-Managed = True
+		Manager = AnkhSVN - Subversion Support for Visual Studio
+	EndGlobalSection
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{00A03FCA-5C3C-490F-BC25-80D9B1EC8331}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{00A03FCA-5C3C-490F-BC25-80D9B1EC8331}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{00A03FCA-5C3C-490F-BC25-80D9B1EC8331}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{00A03FCA-5C3C-490F-BC25-80D9B1EC8331}.Release|Any CPU.Build.0 = Release|Any CPU
+		{EF64A637-49C9-4A33-814A-5C455516522A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{EF64A637-49C9-4A33-814A-5C455516522A}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{EF64A637-49C9-4A33-814A-5C455516522A}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{EF64A637-49C9-4A33-814A-5C455516522A}.Release|Any CPU.Build.0 = Release|Any CPU
+		{BCE9E8B1-E998-4733-8B4F-B30CD54BDDA9}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{BCE9E8B1-E998-4733-8B4F-B30CD54BDDA9}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{BCE9E8B1-E998-4733-8B4F-B30CD54BDDA9}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{BCE9E8B1-E998-4733-8B4F-B30CD54BDDA9}.Release|Any CPU.Build.0 = Release|Any CPU
+		{F9A27274-5C53-4B42-8BEF-81A47CF2C52F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{F9A27274-5C53-4B42-8BEF-81A47CF2C52F}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{F9A27274-5C53-4B42-8BEF-81A47CF2C52F}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{F9A27274-5C53-4B42-8BEF-81A47CF2C52F}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{00A03FCA-5C3C-490F-BC25-80D9B1EC8331} = {075187F6-C32C-43A8-8476-6AE4FA6A920E}
+		{EF64A637-49C9-4A33-814A-5C455516522A} = {6A62ADBC-9E0F-435D-AB46-8CDE5AC19A6D}
+		{BCE9E8B1-E998-4733-8B4F-B30CD54BDDA9} = {0F6765FF-0817-4904-9AFD-5C806869F451}
+		{F9A27274-5C53-4B42-8BEF-81A47CF2C52F} = {0F6765FF-0817-4904-9AFD-5C806869F451}
+	EndGlobalSection
+EndGlobal

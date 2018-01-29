@@ -1,0 +1,448 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="utf-8">
+		<title>土豪去哪</title>
+		<meta name="viewport" content="width=device-width, initial-scale=1,maximum-scale=1,user-scalable=no">
+		<meta name="apple-mobile-web-app-capable" content="yes">
+		<meta name="apple-mobile-web-app-status-bar-style" content="black">
+
+		<link rel="stylesheet" href="css/mui.min.css">
+		<style>
+			html,
+			body {
+				background-color: #efeff4;
+			}
+			
+			span.mui-icon {
+				font-size: 14px;
+				color: #007aff;
+				margin-left: -15px;
+				padding-right: 10px;
+			}
+			
+			.mui-off-canvas-left {
+				color: #fff;
+			}
+			
+			.title {
+				margin: 35px 15px 10px;
+			}
+			
+			.title+.content {
+				margin: 10px 15px 35px;
+				color: #bbb;
+				text-indent: 1em;
+				font-size: 14px;
+				line-height: 24px;
+			}
+			
+			input {
+				color: #000;
+			}
+			
+			.mui-table-view .mui-media-object {
+			    line-height: 42px;
+			    max-width: 100px;
+			    height: 150px;
+			}
+			
+			.mui-media-body .describe {
+				display: -webkit-box;
+			    overflow: hidden;
+			    white-space: normal!important;
+			    text-overflow: ellipsis;
+			    word-wrap: break-word;
+			    -webkit-line-clamp: 4;
+			    -webkit-box-orient: vertical;
+			}
+		</style>
+	</head>
+
+	<body>
+		<div id="offCanvasWrapper" class="mui-off-canvas-wrap mui-draggable mui-scalable">
+			<!--侧滑菜单部分-->
+			<aside id="offCanvasSide" class="mui-off-canvas-left">
+				<div id="offCanvasSideScroll" class="mui-scroll-wrapper">
+					<div class="mui-scroll">
+						<div class="content">
+							<p style="margin: 30px 15px;">
+								<button id="offCanvasHide" type="button" class="mui-btn mui-btn-danger mui-btn-block" style="padding: 5px 20px;">筛选</button>
+							</p>
+						</div>
+						<h5 class="mui-content-padded">影视排序</h5>
+						<ul class="mui-table-view mui-table-view-inverted mui-table-view-radio">
+							<li class="mui-table-view-cell mui-selected">
+								<a class="mui-navigate-right">影评数量</a>
+							</li>
+							<li class="mui-table-view-cell">
+								<a class="mui-navigate-right">想看人数</a>
+							</li>
+							<li class="mui-table-view-cell">
+								<a class="mui-navigate-right">看过人数</a>
+							</li>
+							<li class="mui-table-view-cell">
+								<a class="mui-navigate-right">在看人数</a>
+							</li>
+							<li class="mui-table-view-cell">
+								<a class="mui-navigate-right">短评数量</a>
+							</li>
+							<li class="mui-table-view-cell">
+								<a class="mui-navigate-right">评分人数</a>
+							</li>
+							<li class="mui-table-view-cell">
+								<a class="mui-navigate-right">豆瓣评分</a>
+							</li>
+							<li class="mui-table-view-cell">
+								<a class="mui-navigate-right">上映时间</a>
+							</li>
+							<li class="mui-table-view-cell">
+								<a class="mui-navigate-right">更新时间</a>
+							</li>
+						</ul>
+						<h5 class="mui-content-padded">影视类型</h5>
+						<ul class="mui-table-view mui-table-view-inverted mui-table-view-radio">
+							<li class="mui-table-view-cell mui-selected">
+								<a class="mui-navigate-right">不限</a>
+							</li>
+							<li class="mui-table-view-cell">
+								<a class="mui-navigate-right">剧情</a>
+							</li>
+							<li class="mui-table-view-cell">
+								<a class="mui-navigate-right">爱情</a>
+							</li>
+							<li class="mui-table-view-cell">
+								<a class="mui-navigate-right">喜剧</a>
+							</li>
+							<li class="mui-table-view-cell">
+								<a class="mui-navigate-right">科幻</a>
+							</li>
+							<li class="mui-table-view-cell">
+								<a class="mui-navigate-right">动作</a>
+							</li>
+							<li class="mui-table-view-cell">
+								<a class="mui-navigate-right">悬疑</a>
+							</li>
+							<li class="mui-table-view-cell">
+								<a class="mui-navigate-right">犯罪</a>
+							</li>
+							<li class="mui-table-view-cell">
+								<a class="mui-navigate-right">恐怖</a>
+							</li>
+							<li class="mui-table-view-cell">
+								<a class="mui-navigate-right">战争</a>
+							</li>
+							<li class="mui-table-view-cell">
+								<a class="mui-navigate-right">文艺</a>
+							</li>
+							<li class="mui-table-view-cell">
+								<a class="mui-navigate-right">黑色</a>
+							</li>
+							<li class="mui-table-view-cell">
+								<a class="mui-navigate-right">传记</a>
+							</li>
+							<li class="mui-table-view-cell">
+								<a class="mui-navigate-right">情色</a>
+							</li>
+							<li class="mui-table-view-cell">
+								<a class="mui-navigate-right">音乐</a>
+							</li>
+							<li class="mui-table-view-cell">
+								<a class="mui-navigate-right">家庭</a>
+							</li>
+							<li class="mui-table-view-cell">
+								<a class="mui-navigate-right">纪录</a>
+							</li>
+							<li class="mui-table-view-cell">
+								<a class="mui-navigate-right">奇幻</a>
+							</li>
+							<li class="mui-table-view-cell">
+								<a class="mui-navigate-right">动画</a>
+							</li>
+							<li class="mui-table-view-cell">
+								<a class="mui-navigate-right">其它</a>
+							</li>
+						</ul>
+						<h5 class="mui-content-padded">制片地区</h5>
+						<ul class="mui-table-view mui-table-view-inverted mui-table-view-radio">
+							<li class="mui-table-view-cell mui-selected">
+								<a class="mui-navigate-right">不限</a>
+							</li>
+							<li class="mui-table-view-cell">
+								<a class="mui-navigate-right">大陆</a>
+							</li>
+							<li class="mui-table-view-cell">
+								<a class="mui-navigate-right">美国</a>
+							</li>
+							<li class="mui-table-view-cell">
+								<a class="mui-navigate-right">香港</a>
+							</li>
+							<li class="mui-table-view-cell">
+								<a class="mui-navigate-right">台湾</a>
+							</li>
+							<li class="mui-table-view-cell">
+								<a class="mui-navigate-right">日本</a>
+							</li>
+							<li class="mui-table-view-cell">
+								<a class="mui-navigate-right">韩国</a>
+							</li>
+							<li class="mui-table-view-cell">
+								<a class="mui-navigate-right">英国</a>
+							</li>
+							<li class="mui-table-view-cell">
+								<a class="mui-navigate-right">法国</a>
+							</li>
+							<li class="mui-table-view-cell">
+								<a class="mui-navigate-right">德国</a>
+							</li>
+							<li class="mui-table-view-cell">
+								<a class="mui-navigate-right">意大利</a>
+							</li>
+							<li class="mui-table-view-cell">
+								<a class="mui-navigate-right">西班牙</a>
+							</li>
+							<li class="mui-table-view-cell">
+								<a class="mui-navigate-right">印度</a>
+							</li>
+							<li class="mui-table-view-cell">
+								<a class="mui-navigate-right">泰国</a>
+							</li>
+							<li class="mui-table-view-cell">
+								<a class="mui-navigate-right">俄罗斯</a>
+							</li>
+							<li class="mui-table-view-cell">
+								<a class="mui-navigate-right">伊朗</a>
+							</li>
+							<li class="mui-table-view-cell">
+								<a class="mui-navigate-right">加拿大</a>
+							</li>
+							<li class="mui-table-view-cell">
+								<a class="mui-navigate-right">澳大利亚</a>
+							</li>
+							<li class="mui-table-view-cell">
+								<a class="mui-navigate-right">爱尔兰</a>
+							</li>
+							<li class="mui-table-view-cell">
+								<a class="mui-navigate-right">瑞典</a>
+							</li>
+							<li class="mui-table-view-cell">
+								<a class="mui-navigate-right">巴西</a>
+							</li>
+							<li class="mui-table-view-cell">
+								<a class="mui-navigate-right">丹麦</a>
+							</li>
+							<li class="mui-table-view-cell">
+								<a class="mui-navigate-right">其它</a>
+							</li>
+						</ul>
+						<h5 class="mui-content-padded">上映年份</h5>
+						<ul class="mui-table-view mui-table-view-inverted mui-table-view-radio">
+							<li class="mui-table-view-cell mui-selected">
+								<a class="mui-navigate-right">不限</a>
+							</li>
+							<li class="mui-table-view-cell">
+								<a class="mui-navigate-right">2017</a>
+							</li>
+							<li class="mui-table-view-cell">
+								<a class="mui-navigate-right">2016</a>
+							</li>
+							<li class="mui-table-view-cell">
+								<a class="mui-navigate-right">2015</a>
+							</li>
+							<li class="mui-table-view-cell">
+								<a class="mui-navigate-right">2014</a>
+							</li>
+							<li class="mui-table-view-cell">
+								<a class="mui-navigate-right">2013</a>
+							</li>
+							<li class="mui-table-view-cell">
+								<a class="mui-navigate-right">2012</a>
+							</li>
+							<li class="mui-table-view-cell">
+								<a class="mui-navigate-right">2011</a>
+							</li>
+							<li class="mui-table-view-cell">
+								<a class="mui-navigate-right">2010</a>
+							</li>
+							<li class="mui-table-view-cell">
+								<a class="mui-navigate-right">00年代</a>
+							</li>
+							<li class="mui-table-view-cell">
+								<a class="mui-navigate-right">90年代</a>
+							</li>
+							<li class="mui-table-view-cell">
+								<a class="mui-navigate-right">80年代</a>
+							</li>
+							<li class="mui-table-view-cell">
+								<a class="mui-navigate-right">70年代</a>
+							</li>
+							<li class="mui-table-view-cell">
+								<a class="mui-navigate-right">更早</a>
+							</li>
+						</ul>
+					</div>
+				</div>
+			</aside>
+			<!--主界面部分-->
+			<div class="mui-inner-wrap">
+				<header class="mui-bar mui-bar-nav">
+					<a href="#offCanvasSide" class="mui-icon mui-action-menu mui-icon-bars mui-pull-left"></a>
+					<a href="guide.html" class="mui-icon mui-icon-search mui-pull-right"></a>
+					<h1 class="mui-title">影片</h1>
+				</header>
+				<div id="offCanvasContentScroll" class="mui-content mui-scroll-wrapper">
+					<div class="mui-scroll">
+						<ul id="filmList" class="mui-table-view mui-table-view-chevron">
+						
+						</ul>
+					</div>
+				</div>
+				<!-- off-canvas backdrop -->
+				<div class="mui-off-canvas-backdrop"></div>
+			</div>
+		</div>
+		<script type="text/html" id="filmListTpl">
+			{{each list as m}}
+			<li class="mui-table-view-cell mui-media">
+				<a class="mui-navigate-right">
+					<img class="mui-media-object mui-pull-left" src="{{m.Poster.replace(" lpst ","spst ")}}">
+					<div class="mui-media-body">
+						{{m.Name}}
+						<span style="display: block; color: #8f8f94;">评分：<span style="margin-right: 15px; color: #fc9b35;">{{m.Score.toFixed(1)}}</span>年份：{{m.Year}}</span>
+						<span style="display: block; color: #8f8f94;">剧情 / 爱情 / 枪战</span>
+						<!--<span style="display: block; color: #8f8f94;">年份：{{m.Year}}</span>-->
+						<!--<span style="display: block; color: #8f8f94;">类型: 剧情 / 爱情</span>
+								<span style="display: block; color: #8f8f94;">又名: Eternal Love / To the Sky Kingdom / 三生三世十里桃花电视剧版</span>
+								<span style="display: block; color: #8f8f94;">上映时间: 2017-01-30(中国大陆)</span>-->
+						<p class="describe">{{m.Describe}}</p>
+					</div>
+				</a>
+			</li>
+			{{/each} }}
+		</script>
+		<script type="text/javascript" src="js/mui.min.js"></script>
+		<script type="text/javascript" src="js/jquery-1.10.2.min.js" ></script>
+		<script type="text/javascript" src="js/template-web.js" ></script>
+		<script type="text/javascript" src="js/config.js" ></script>
+		<script type="text/javascript" src="js/common.js" ></script>
+		<script type="text/javascript" src="js/mui.lazyload.js"></script>
+		<script type="text/javascript" src="js/mui.lazyload.img.js"></script>
+		<script>
+			var page = 1, pageSize = 20; totalPage = 1;
+		    var orderby = 1, family = 1, genre = "不限", country = "不限", year = "不限", state = "不限";
+			mui.init({
+				swipeBack: false,
+				pullRefresh: {
+					container: '#offCanvasContentScroll',
+					down: {
+						callback: pulldownRefresh
+					},
+					up: {
+						contentrefresh: '正在加载...',
+						callback: pullupRefresh
+					}
+				}
+			});
+			
+			(function($) {
+				//主界面和侧滑菜单界面均支持区域滚动；
+				mui('#offCanvasSideScroll').scroll();
+				mui('#offCanvasContentScroll').scroll();
+				pulldownRefresh();
+				$(document).imageLazyload({
+					placeholder: 'images/movie.png'
+				});
+				
+				//侧滑容器父节点
+				var offCanvasWrapper = mui('#offCanvasWrapper');
+				//主界面容器
+				var offCanvasInner = offCanvasWrapper[0].querySelector('.mui-inner-wrap');
+				//菜单容器
+				var offCanvasSide = document.getElementById("offCanvasSide");
+				
+				if(!mui.os.android) {
+					//document.getElementById("move-togger").classList.remove('mui-hidden');
+					var spans = document.querySelectorAll('.android-only');
+					for(var i = 0, len = spans.length; i < len; i++) {
+						spans[i].style.display = "none";
+					}
+				}
+				//菜单界面，‘关闭侧滑菜单’按钮的点击事件
+				document.getElementById('offCanvasHide').addEventListener('tap', function() {
+					offCanvasWrapper.offCanvas('close');
+				});
+				
+				//实现ios平台原生侧滑关闭页面；
+				if(mui.os.plus && mui.os.ios) {
+					mui.plusReady(function() { //5+ iOS暂时无法屏蔽popGesture时传递touch事件，故该demo直接屏蔽popGesture功能
+						plus.webview.currentWebview().setStyle({
+							'popGesture': 'none'
+						});
+					});
+				}
+				
+			})(mui);
+			
+			function getList () {
+				var sendParms = {
+		            orderby: orderby,
+		            family: family,
+		            genre: genre,
+		            country: country,
+		            year: year,
+		            state: state,
+		            page: page,
+		            pageSize: pageSize,
+		        };
+		
+		        Ajax({
+		            url: "GetFilm",
+		            type: 'post',
+		            data: sendParms,
+		            async: true,
+		            timeout: 10000,
+		            dataType: 'json',
+		            beforeSend: function () {
+		
+		            },
+		            success: function (outData) {
+		                if (outData.StatusCode == 200) {
+		                	totalPage = outData.Data.totalPage;
+		                	var html = template("filmListTpl", outData.Data);
+		                	if (page == 1) {
+			                    $("#filmList").html(html);
+			                } else {
+			                    $("#filmList").append(html);
+			                }
+		                }
+		            },
+		            complete: function () {
+		            	mui('#offCanvasContentScroll').pullRefresh().endPulldownToRefresh();
+		            },
+		            error: function () {
+		            	mui.toast("请求超时,请稍后再试...");
+		            }
+		        });
+			}
+			/**
+			 * 下拉刷新具体业务实现
+			 */
+			function pulldownRefresh() {
+				page = 1;
+				getList();
+			}
+			
+			/**
+			 * 上拉加载具体业务实现
+			 */
+			function pullupRefresh() {
+				page++;
+				mui('#offCanvasContentScroll').pullRefresh().endPullupToRefresh(page>=totalPage); //参数为true代表没有更多数据了。
+				getList();
+			}
+			
+		</script>
+	</body>
+
+</html>

@@ -1,0 +1,228 @@
+﻿@{
+    //资源url
+    var lib_url = DripOldDriver.Cache.MemoryCache.Cache.Get<string>("TuHaoQuNa.LibUrl", () => System.Configuration.ConfigurationManager.AppSettings["TuHaoQuNa.LibUrl"]);
+}
+@section Backgrounds{
+<div class="background-overlay  hidden-xs hidden-sm"></div>
+}
+<section class="imagebg bg--dark" style="padding-bottom: 3em">
+    <div class="background-image-holder" style="opacity: 1;height: 700px;">
+        <img id="background" alt="background" src="">
+    </div>
+    <div class="container">
+        <div class="row">
+            <div class="col-md-12 text-center">
+                <div class="typed-headline" style="margin-bottom: 1em;">
+                    <span class="h1 inline-block">可以这样搜索</span>
+                    <span id="search_ts" class="h1 inline-block typed-text typed-text--cursor color--primary" data-typed-strings="肖申克的救赎,The Shawshank Redemption,刺激1995,地狱诺言,铁窗岁月,消香克的救赎,月黑高飞,美国,经典,剧情,人生,人性,励志,1994,自由,信念,希望,弗兰克·德拉邦特,斯蒂芬·金,蒂姆·罗宾斯,摩根·弗里曼,鲍勃·冈顿,威廉姆·赛德勒,克兰西·布朗"></span>
+                </div>
+                <div class="boxed boxed--lg text-left">
+                    <div class="col-sm-8">
+                        <input type="search" name="keyboard" value="@ViewBag.Keyword" placeholder="影片搜索 支持 影片名/标签/影人">
+                    </div>
+                    <div class="col-sm-4">
+                        <button id="btn_search" type="submit" class="btn btn--primary type--uppercase">立即搜索</button>
+                    </div>
+                </div>
+            </div>
+            <div id="searchTrip" style="display:none;" class="col-md-12 text-center"><h2>找到 <span id="searchNum" class="type--bold" style="color: #4a90e2"></span> 条 关键词为 <span class="type--bold" style="color: #4a90e2" id="searchKey"></span> 的影视条目</h2></div>
+            <div class="col-sm-12 text-center">
+                @RenderPage("_SearchList.cshtml")
+            </div>
+            <div id="page" class="text-center hidden-sm hidden-xs">
+            </div>
+        </div>
+    </div>
+</section>
+<script id="searchTpl" type="text/html">
+    {{# for (var i = 0; i < d.length; i++) { }}
+    <div class="masonry__item col-md-3 col-sm-6 col-xs-6" data-masonry-filter="{{d[i].subtype=="movie"?"电影":"电视剧"}}">
+        <a href="/subject/{{d[i].id}}" target="_blank" class="block text-block">
+            <div class="hover-shadow">
+                <img class="poster" family="{{d[i].subtype=="movie"?"movie":"tvshow"}}" alt="{{d[i].title}}" src="{{d[i].images?d[i].images.large:(d[i].subtype=="movie"?lib_url+"/img/movie.png":lib_url+"/img/tvshow.png")}}" />
+            </div>
+        </a>
+        <div class="text-center">
+            <h5>{{d[i].title}}<span class="type--fine-print">{{d[i].year?("("+d[i].year+")"):""}}</span></h5>
+        </div>
+    </div>
+    {{# } }}
+</script>
+<script id="pageTpl" type="text/html">
+    <ul class="tsc_pagination tsc_paginationA tsc_paginationA06">
+        {{# if(page>1){ }}
+        <li><a class="prev" data-page="{{page-1}}" style="cursor:pointer">&nbsp;</a></li>
+        {{# } }}
+        {{# if(page>=5){ }}
+        <li><a class="num" data-page="1" style="cursor:pointer">首页</a></li>
+        <li><a class="num">...</a></li>
+        {{# for (var i = page-2; i <= ((page-2+5)>totalPage?totalPage:(page-2+5)); i++) { }}
+        {{# if(i==page){ }}
+        <li class="active"><span class="current">{{i}}</span></li>
+        {{# } else { }}
+        <li><a class="num" data-page="{{i}}" style="cursor:pointer">{{i}}</a></li>
+        {{# } }}
+        {{# } }}
+        {{# } else { }}
+        {{# for (var i = 1; (i <= 5 && i<= totalPage); i++) { }}
+        {{# if(i==page){ }}
+        <li class="active"><span class="current">{{i}}</span></li>
+        {{# } else { }}
+        <li><a class="num" data-page="{{i}}" style="cursor:pointer">{{i}}</a></li>
+        {{# } }}
+        {{# } }}
+        {{# } }}
+        {{# if(totalPage>page){ }}
+        <li><a class="next" data-page="{{page+1}}" style="cursor:pointer">&nbsp;</a></li>
+        <li><a class="end" data-page="{{totalPage}}" style="cursor:pointer">...{{totalPage}}</a></li>
+        {{# } }}
+    </ul>
+</script>
+@section Styles{
+
+}
+@section Scripts{
+@Scripts.Render("~/js/jquery")
+@Scripts.Render("~/js/masonry")
+@Scripts.Render("~/js/imagesloaded")
+@Scripts.Render("~/js/common")
+@Scripts.Render("~/layui/layui")
+<script type="text/javascript">
+    var search_index = 0;
+    var search_url = "//api.douban.com/v2/movie/search";
+    var doubanKey = "@(TuHaoQuNa.Business.Config_BLL.Config.Get<string>("DouBan.ApiKey"))";
+    var page = 1, pageSize = 20, maxPage = 5, startPage = 1, totalPage = 1, total = 0, doubanMaxPage = 100;
+    var lib_url = "@lib_url";
+    var isLoad = false;
+    //var key_str;
+
+    layui.use(['layer', 'laytpl'], function () {
+        $(window).scroll(function () {
+            var doc_height = $(document).height();
+            var scroll_top = $(document).scrollTop();
+            var window_height = $(window).height();
+            if (scroll_top + window_height >= doc_height - 400) {
+                if (!isLoad && maxPage > startPage && totalPage > page) {
+                    isLoad = true;
+                    page++;
+                    startPage++;
+                    getSearch();
+                }
+            }
+        });
+
+        setInterval(function () {
+            var str = $("#search_ts").attr("data-typed-strings");
+            var t_str_num = str.length;
+
+            if (str.substr(search_index, 1) == ",") {
+                $("#search_ts").html("");
+            } else {
+                $("#search_ts").html($("#search_ts").html() + str.substr(search_index, 1));
+            }
+
+            if (t_str_num > search_index) {
+                search_index++;
+            } else {
+                search_index = 0;
+                $("#search_ts").html("");
+            }
+
+        }, 300);
+
+        $("#page").on("click", "a", function () {
+            var t_page = $(this);
+            var page_str = t_page.attr("data-page");
+            if (page_str) {
+                $(document).scrollTop(0);
+                page = parseInt(page_str);
+                startPage = 1;
+                getSearch();
+            }
+        });
+
+        $("#btn_search").on("click", function () {
+            keyword = $("[name='keyboard']").val();
+            if (keyword) {
+                page = 1, startPage = 1, totalPage = 1, total = 0;
+                getSearch();
+            }
+        });
+        $("[name='keyboard']").keydown(function (e) {
+            if (e.keyCode == 13) {
+                $("#btn_search").trigger("click");
+            }
+        });
+
+        if ($("[name='keyboard']").val()) {
+            getSearch();
+        }
+
+    });
+
+    function getSearch() {
+        var keyword = $("[name='keyboard']").val();
+        if (keyword) {
+            var sendParms = {
+                q: keyword,
+                apikey: doubanKey,
+                start: (page - 1) * pageSize,
+                count: pageSize
+            };
+            $.ajax(search_url,
+                {
+                    type: "get",
+                    data: sendParms,
+                    async: true,
+                    timeout: 60000,
+                    dataType: "jsonp",
+                    beforeSend: function () {
+                        loadIndex = layer.msg("玩命加载中...");
+                    },
+                    success: function (outData) {
+                        if (outData.subjects) {
+                            total = outData.total;
+                            totalPage = parseInt(total / pageSize) + ((total % pageSize) > 0 ? 1 : 0);
+                            totalPage = totalPage > doubanMaxPage ? doubanMaxPage : totalPage; 
+                            $("#searchTrip").show();
+                            $("#searchNum").html(total);
+                            $("#searchKey").html(keyword);
+                            var searchTpl = document.getElementById("searchTpl").innerHTML;
+                            layui.laytpl(searchTpl).render(outData.subjects, function (html) {
+                                var item = $(html);
+                                if (startPage == 1) {
+                                    masonry.masonry('remove', $(".masonry__item"));
+                                    masonry.append(item).masonry('appended', item);
+                                } else {
+                                    masonry.append(item).masonry('appended', item);
+                                }
+                            });
+                        }
+
+                        setPage();
+
+                        setTimeout(function () { isLoad = false }, 500);
+
+                        $(".poster").imagesLoaded()
+                            .progress(function (instance, image) {
+                                masonry.masonry();
+                            });
+                    },
+                    complete: function () {
+                        layer.close(loadIndex);
+                    },
+                    error: function () {
+                        layer.msg("请求超时,请稍后再试...", { time: 1500 });
+                    }
+                });
+        }
+    }
+
+    function setPage() {
+        var pageTpl = document.getElementById("pageTpl").innerHTML;
+        layui.laytpl(pageTpl).render(page, function (html) {
+            $("#page").html(html);
+        });
+    }
+</script>
+}

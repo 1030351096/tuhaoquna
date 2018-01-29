@@ -1,0 +1,402 @@
+﻿
+<!doctype html>
+<html lang="zh-cmn-Hans" class="ua-windows ua-webkit">
+<head>
+    <meta charset="utf-8">
+    <title>搜索 - 土豪去哪</title>
+    <meta name="description" content="tuhaoquna.com 土豪去哪是国内独树一帜的影视站点，资源全面，设计优雅，毫无广告，极佳的用户体验，是下载电影、下载字幕、观看影片最佳网站。">
+    <meta name="keywords" content="土豪去哪,高清电影,蓝光原盘,3D电影,1080p电影,高清电影下载,蓝光原盘下载,最新电影,在线电影,电影字幕,在线影评,影评,在线电影,无广告电影">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="renderer" content="webkit">
+    <meta http-equiv="Content-Type" content="text/html;charset=UTF-8">
+    <link href="/css/main.css" rel="stylesheet" type="text/css" media="all" />
+    <link href="/css/theme.css" rel="stylesheet" type="text/css" media="all" />
+    <link href="/css/customv.css" rel="stylesheet" type="text/css" media="all" />
+    <link rel="icon" href="/favicon.ico" />
+</head>
+<body style="height:100%;">
+    <div class="nav-container ">
+        <div class="bar bar--sm visible-xs">
+            <div class="container">
+                <div class="row">
+                    <div class="col-xs-3 col-sm-2">
+                        <a href="/">
+                            <img class="logo logo-dark" alt="logo" src="/img/logo-dark.png" />
+                            <img class="logo logo-light" alt="logo" src="/img/logo-light.png" />
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="background-overlay  hidden-xs hidden-sm"></div>
+        <nav class="bar bar-2 hidden-xs bar--absolute bar--transparent" id="menu1">
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-2 hidden-xs hidden-sm">
+                        <div class="bar__module">
+                            <a href="/">
+                                <img class="logo logo-dark" alt="logo" src="/img/logo-dark.png" />
+                                <img class="logo logo-light" alt="logo" src="/img/logo-light.png" />
+                            </a>
+                        </div>
+                    </div>
+                    <div class="col-md-8">
+                        <div class="bar__module">
+                            <ul class="menu-horizontal">
+                                <li class="dropdown">
+                                    <a href="/movie.html">
+                                        <span class="dropdown__trigger">电影</span>
+                                    </a>
+                                </li>
+                                <li class="dropdown">
+                                    <a href="/tvshow.html">
+                                        <span class="dropdown__trigger">电视剧</span>
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="/search.html">
+                                        <i class="stack-search"></i>
+                                    </a>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </nav>
+    </div>
+
+    <div class="main-container">
+        <section class="imagebg bg--dark" style="padding-bottom: 3em">
+            <div class="background-image-holder" style="opacity: 1;height: 700px;">
+                <img id="background" alt="background" src="">
+            </div>
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-12 text-center">
+                        <div class="typed-headline" style="margin-bottom: 1em;">
+                            <span class="h1 inline-block">可以这样搜索</span>
+                            <span id="search_ts" class="h1 inline-block typed-text typed-text--cursor color--primary" data-typed-strings="大话西游,A Chinese Odyssey,1292213"></span>
+                        </div>
+                        <div class="boxed boxed--lg text-left">
+                            <div class="col-sm-8">
+                                <input type="search" name="keyboard" placeholder="影片搜索 支持 影片名/豆瓣号">
+                            </div>
+                            <div class="col-sm-4">
+                                <button id="btn_search" type="submit" class="btn btn--primary type--uppercase">立即搜索</button>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-sm-12 text-center">
+                        <div class="masonry">
+                        </div>
+                    </div>
+                    <div id="page" class="text-center hidden-sm hidden-xs">
+                    </div>
+                </div>
+            </div>
+        </section>
+    </div>
+
+    <section class="space--xs imagebg" style="background-color: #353535;">
+        <div class="container">
+            <div class="row">
+                <div class="cta cta--horizontal text-center-xs">
+                    <div class="col-sm-4" style="color: #efe"></div>
+                    <div class="col-sm-5">
+                        <p class="lead" style="color: #efe">加入土豪去哪官方群，与广大影迷交流</p>
+                    </div>
+                    <div class="col-sm-3 text-right text-center-xs">
+                        <a class="btn btn--primary-1 type--uppercase" target="_blank" href="//shang.qq.com/wpa/qunwpa?idkey=046162de5a3e4a002806620e4d3b73cdb21518ee2bb2dba5e87edc47f09cb234">
+                            <span class="btn__text">立即加入QQ群</span>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <footer class="space--sm footer-2 bg--dark ">
+        <div class="container">
+            <div class="row">
+                <div class="col-sm-6">
+                    <script type="text/javascript">
+                        var cnzz_protocol = (("https:" == document.location.protocol) ? " https://" : " http://");
+                        document.write(unescape("%3Cspan id='cnzz_stat_icon_1262999256'%3E%3C/span%3E%3Cscript src='" + cnzz_protocol + "s13.cnzz.com/z_stat.php%3Fid%3D1262999256%26show%3Dpic' type='text/javascript'%3E%3C/script%3E"));
+                    </script>
+                    <span class="type--fine-print">
+                        &copy;
+                        <span class="update-year"></span>tuhaoquna.com
+                    </span>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script id="filmListTpl" type="text/html">
+        {{# for (var i = 0; i < d.length; i++) { }}
+        <div class="masonry__item col-md-3 col-sm-6 col-xs-6" data-masonry-filter="{{d[i].Family==2?"电视剧":"电影"}}">
+            <a href="/subject/{{d[i].Guid}}.html" target="_blank" class="block text-block">
+                <figure class="effect-sadie">
+                    <img class="poster" family="{{d[i].Family==2?"tvshow":"movie"}}" alt="{{d[i].Name}}" src="{{d[i].Poster}}" />
+                    <figcaption>
+                        <h2>
+                            {{d[i].Name}}
+                            {{# if(d[i].Year){ }}
+                            <br>
+                            <span>{{d[i].Year}}</span>
+                            {{# } }}
+                        </h2>
+                        <p>
+                            <span property="v:summary" style="word-wrap:break-word;">
+                                {{d[i].Describe}}
+                            </span>
+                        </p>
+                        <h5>
+                            {{d[i].Name}}
+                            {{# if(d[i].Year){ }}
+                            <span class="type--fine-print">({{d[i].Year}})</span>
+                            {{# } }}
+                            {{# if(d[i].Score>0){ }}
+                            <span class="tag-sm tag-picture2">{{d[i].Score.toFixed(1)}}</span>
+                            {{# } }}
+                        </h5>
+                        {{# if(d[i].Score>0){ }}
+                        <em>{{d[i].Score.toFixed(1)}}</em>
+                        {{# } }}
+                    </figcaption>
+                </figure>
+            </a>
+        </div>
+        {{# } }}
+    </script>
+
+    <script id="pageTpl" type="text/html">
+        <ul class="tsc_pagination tsc_paginationA tsc_paginationA06">
+            {{# if(page>1){ }}
+            <li><a class="prev" data-page="{{page-1}}" style="cursor:pointer">&nbsp;</a></li>
+            {{# } }}
+            {{# if(page>=5){ }}
+            <li><a class="num" data-page="1" style="cursor:pointer">首页</a></li>
+            <li><a class="num">...</a></li>
+            {{# for (var i = page-2; i <= ((page-2+5)>totalPage?totalPage:(page-2+5)); i++) { }}
+            {{# if(i==page){ }}
+            <li class="active"><span class="current">{{i}}</span></li>
+            {{# } else { }}
+            <li><a class="num" data-page="{{i}}" style="cursor:pointer">{{i}}</a></li>
+            {{# } }}
+            {{# } }}
+            {{# } else { }}
+            {{# for (var i = 1; (i <= 5 && i<= totalPage); i++) { }}
+            {{# if(i==page){ }}
+            <li class="active"><span class="current">{{i}}</span></li>
+            {{# } else { }}
+            <li><a class="num" data-page="{{i}}" style="cursor:pointer">{{i}}</a></li>
+            {{# } }}
+            {{# } }}
+            {{# } }}
+            {{# if(totalPage>page){ }}
+            <li><a class="next" data-page="{{page+1}}" style="cursor:pointer">&nbsp;</a></li>
+            <li><a class="end" data-page="{{totalPage}}" style="cursor:pointer">...{{totalPage}}</a></li>
+            {{# } }}
+
+        </ul>
+    </script>
+
+    <script>
+        (function () {
+            var bp = document.createElement('script');
+            var curProtocol = window.location.protocol.split(':')[0];
+            if (curProtocol === 'https') {
+                bp.src = 'https://zz.bdstatic.com/linksubmit/push.js'
+            } else {
+                bp.src = 'http://push.zhanzhang.baidu.com/push.js'
+            }
+            var s = document.getElementsByTagName("script")[0];
+            s.parentNode.insertBefore(bp, s)
+        })();
+    </script>
+    <script src="/js/jquery-3.1.1.min.js"></script>
+    <script src="/layui/layui.all.js"></script>
+    <script type="text/javascript" src="js/common.js"></script>
+    <script src="/js/masonry.pkgd.min.js"></script>
+    <script src="/js/imagesloaded.pkgd.min.js"></script>
+    <script type="text/javascript">
+        var page = 1, pageSize = 20, maxPage = 5, startPage = 1, totalPage = 1;
+        var isLoad = false;
+        var loadIndex;
+        var masonry;
+        var orderby = 8;
+        var search_index = 0;
+        var keyword = "";
+
+        $(function () {
+            var r_background = Math.round(Math.random() * 31 + 1);
+            console.log(r_background);
+            $(".ackground-image-holder").css("background", "url(/background/background" + r_background + ".jpg)");
+            $(".background-image-holder").css("background", "url(/background/background" + r_background + ".jpg)");
+            $("#background").attr("src", "/background/background" + r_background + ".jpg");
+
+            masonry = $(".masonry").masonry({
+                itemSelector: ".masonry__item",
+                percentPosition: true
+            });
+
+            $(window).scroll(function () {
+                var doc_height = $(document).height();
+                var scroll_top = $(document).scrollTop();
+                var window_height = $(window).height();
+                if (scroll_top + window_height >= doc_height) {
+                    if (!isLoad && maxPage > startPage && totalPage > page && keyword) {
+                        page++;
+                        startPage++;
+                        searchFilm();
+                    }
+                }
+            });
+
+            $("#page").on("click", "a", function () {
+                var t_page = $(this);
+                var page_str = t_page.attr("data-page");
+                if (page_str) {
+                    $(document).scrollTop(0);
+                    page = parseInt(page_str);
+                    startPage = 1;
+                    searchFilm();
+                }
+            });
+
+            $("#btn_search").on("click", function () {
+                keyword = $("[name='keyboard']").val();
+                if (keyword) {
+                    page = 1, startPage = 1, totalPage = 1;
+                    searchFilm();
+                }
+            });
+            $("[name='keyboard']").keydown(function (e) {
+                if (e.keyCode == 13) {
+                    $("#btn_search").trigger("click");
+                }
+            });
+
+            setInterval(function () {
+                var str = $("#search_ts").attr("data-typed-strings");
+                var t_str_num = str.length;
+                
+                if (str.substr(search_index, 1) == ",") {
+                    $("#search_ts").html("");
+                } else {
+                    $("#search_ts").html($("#search_ts").html() + str.substr(search_index, 1));
+                }
+
+                if (t_str_num > search_index) {
+                    search_index++;
+                } else {
+                    search_index = 0;
+                    $("#search_ts").html("");
+                }
+                
+            }, 200);
+
+            getHotFilm();
+
+        });
+
+        function searchFilm() {
+            var sendParms = {
+                keyword: keyword,
+                orderby: orderby,
+                page: page,
+                pageSize: pageSize,
+            };
+            Ajax({
+                url: "SearchFilm",
+                type: 'post',
+                data: sendParms,
+                async: true,
+                timeout: 10000,
+                dataType: 'json',
+                beforeSend: function () {
+                    isLoad = true;
+                },
+                success: function (outData) {
+                    if (outData.StatusCode == 200) {
+                        totalPage = outData.Data.totalPage;
+                        var list = outData.Data.list;
+                        var filmListTpl = document.getElementById("filmListTpl").innerHTML;
+                        layui.laytpl(filmListTpl).render(list, function (html) {
+                            var item = $(html);
+                            if (startPage == 1) {
+                                masonry.masonry('remove', $(".masonry__item"));
+                                masonry.append(item).masonry('appended', item);
+                            } else {
+                                masonry.append(item).masonry('appended', item);
+                            }
+                        });
+                        isLoad = false;
+                        setPage();
+                    } else {
+                        layer.msg(outData.Message, { time: 1000 });
+                    }
+
+                    $(".poster").imagesLoaded()
+                        .progress(function (instance, image) {
+                            masonry.masonry();
+                        });
+                },
+                complete: function () {
+                },
+                error: function () {
+                }
+            });
+        }
+
+        function getHotFilm() {
+            var sendParms = {
+                page: 1,
+                pageSize: 20
+            };
+            Ajax({
+                url: "GetHotFilm",
+                type: 'post',
+                data: sendParms,
+                async: true,
+                timeout: 10000,
+                dataType: 'json',
+                beforeSend: function () {
+                    isLoad = true;
+                },
+                success: function (outData) {
+                    if (outData.StatusCode == 200) {
+                        var list = outData.Data.list;
+                        var filmListTpl = document.getElementById("filmListTpl").innerHTML;
+                        layui.laytpl(filmListTpl).render(list, function (html) {
+                            var item = $(html);
+                            masonry.masonry('remove', $(".masonry__item"));
+                            masonry.append(item).masonry('appended', item);
+                            isLoad = false;
+                        });
+                    } else {
+                        layer.msg(outData.Message, { time: 1000 });
+                    }
+
+                    $(".poster").imagesLoaded()
+                        .progress(function (instance, image) {
+                            masonry.masonry();
+                        });
+                },
+                complete: function () {
+                },
+                error: function () {
+                }
+            });
+        }
+
+        function setPage() {
+            var pageTpl = document.getElementById("pageTpl").innerHTML;
+            layui.laytpl(pageTpl).render(page,function (html) {
+                $("#page").html(html);
+            });
+        }
+    </script>
+</body>
+</html>

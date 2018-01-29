@@ -1,0 +1,12 @@
+C:\Users\admin\Documents\Visual Studio 2017\Projects\TuHaoQuNa\TuHaoQuNa.Domain\bin\Debug\TuHaoQuNa.Domain.dll.config
+C:\Users\admin\Documents\Visual Studio 2017\Projects\TuHaoQuNa\TuHaoQuNa.Domain\bin\Debug\TuHaoQuNa.Domain.dll
+C:\Users\admin\Documents\Visual Studio 2017\Projects\TuHaoQuNa\TuHaoQuNa.Domain\bin\Debug\TuHaoQuNa.Domain.pdb
+C:\Users\admin\Documents\Visual Studio 2017\Projects\TuHaoQuNa\TuHaoQuNa.Domain\bin\Debug\DripOldDriver.Data.dll
+C:\Users\admin\Documents\Visual Studio 2017\Projects\TuHaoQuNa\TuHaoQuNa.Domain\bin\Debug\DripOldDriver.dll
+C:\Users\admin\Documents\Visual Studio 2017\Projects\TuHaoQuNa\TuHaoQuNa.Domain\bin\Debug\DripOldDriver.Data.pdb
+C:\Users\admin\Documents\Visual Studio 2017\Projects\TuHaoQuNa\TuHaoQuNa.Domain\bin\Debug\DripOldDriver.pdb
+C:\Users\admin\Documents\Visual Studio 2017\Projects\TuHaoQuNa\TuHaoQuNa.Domain\bin\Debug\zh-TW\DripOldDriver.Data.resources.dll
+C:\Users\admin\Documents\Visual Studio 2017\Projects\TuHaoQuNa\TuHaoQuNa.Domain\bin\Debug\zh-TW\DripOldDriver.resources.dll
+C:\Users\admin\Documents\Visual Studio 2017\Projects\TuHaoQuNa\TuHaoQuNa.Domain\obj\Debug\TuHaoQuNa.Domain.csprojResolveAssemblyReference.cache
+C:\Users\admin\Documents\Visual Studio 2017\Projects\TuHaoQuNa\TuHaoQuNa.Domain\obj\Debug\TuHaoQuNa.Domain.dll
+C:\Users\admin\Documents\Visual Studio 2017\Projects\TuHaoQuNa\TuHaoQuNa.Domain\obj\Debug\TuHaoQuNa.Domain.pdb
